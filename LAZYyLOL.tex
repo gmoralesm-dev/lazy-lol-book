@@ -12,13 +12,13 @@
 \usepackage{enumitem}
 \usepackage{microtype}
 \usepackage{csquotes}
-\usepackage{tcolorbox}
 \usepackage{hyperref}
 \usepackage{bookmark}
 \usepackage{parskip}
 \usepackage{setspace}
 \usepackage{tabularx}   % For flexible, auto-fitting columns
 \usepackage{array}      % For advanced column formatting
+\usepackage[most]{tcolorbox}
 
 \setstretch{1.2}
 \usepackage{booktabs}
@@ -59,6 +59,51 @@
   fontupper=\color{primary},
   title=\textbf{Observación del Autor},
   coltitle=primary,
+  fonttitle=\sffamily\bfseries,
+  attach title to upper=\par\vspace{0.5em}
+}
+\newtcolorbox{bitacorafield}[1]{
+  colback=primary!3,
+  colframe=primary!20,
+  left=1.2em,
+  right=1.2em,
+  top=0.6em,
+  bottom=0.6em,
+  arc=3pt,
+  boxrule=0.6pt,
+  fontupper=\color{primary},
+  title=\textbf{#1},
+  coltitle=secondary,
+  fonttitle=\sffamily\bfseries\small,
+  attach title to upper=\par\vspace{0.3em}
+}
+\newtcolorbox{specunit}[1]{
+  colback=secondary!5,
+  colframe=secondary!45,
+  left=1.3em,
+  right=1.3em,
+  top=0.8em,
+  bottom=0.8em,
+  arc=4pt,
+  boxrule=0.8pt,
+  fontupper=\color{primary},
+  title=\textbf{#1},
+  coltitle=secondary,
+  fonttitle=\sffamily\bfseries\small,
+  attach title to upper=\par\vspace{0.4em}
+}
+\newtcolorbox{bitacoraseal}{
+  colback=accent!6,
+  colframe=accent!55,
+  left=1.5em,
+  right=1.5em,
+  top=1em,
+  bottom=1em,
+  arc=5pt,
+  boxrule=1.2pt,
+  fontupper=\color{primary},
+  title=\textbf{Sello de Cruce},
+  coltitle=accent,
   fonttitle=\sffamily\bfseries,
   attach title to upper=\par\vspace{0.5em}
 }
@@ -223,6 +268,105 @@ Uno de los principios centrales de este libro es comprender a las personas antes
 \par\vspace{1em}
 Las mejores soluciones tecnológicas no se construyen únicamente para los usuarios promedio; también deben considerar las necesidades de quienes suelen quedar fuera del diseño inicial. Espero que esta pequeña decisión de diseño editorial contribuya a que el conocimiento contenido en estas páginas pueda llegar a más lectores con total comodidad.
 \newpage
+
+\chapter*{Lista de Abreviaciones}
+\addcontentsline{toc}{chapter}{Lista de Abreviaciones}
+
+A continuación se presenta una lista con las principales abreviaciones utilizadas a lo largo de este libro y sus significados correspondientes:
+
+\vspace{1em}
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{l p{10cm}}
+\toprule
+\textbf{Abreviación} & \textbf{Significado} \\
+\midrule
+\textbf{\color{primary}API} & Application Programming Interface \\
+\addlinespace
+\textbf{\color{primary}BD} & Base de Datos \\
+\addlinespace
+\textbf{\color{primary}BDUF} & Big Design Up Front \\
+\addlinespace
+\textbf{\color{primary}CC} & Consejo Comunal \\
+\addlinespace
+\textbf{\color{primary}CI/CD} & Continuous Integration / Continuous Deployment \\
+\addlinespace
+\textbf{\color{primary}CRUD} & Create, Read, Update, Delete \\
+\addlinespace
+\textbf{\color{primary}CSS} & Cascading Style Sheets \\
+\addlinespace
+\textbf{\color{primary}DOI} & Digital Object Identifier \\
+\addlinespace
+\textbf{\color{primary}DSR} & Design Science Research \\
+\addlinespace
+\textbf{\color{primary}HTML} & HyperText Markup Language \\
+\addlinespace
+\textbf{\color{primary}IA} & Inteligencia Artificial \\
+\addlinespace
+\textbf{\color{primary}IDOR} & Insecure Direct Object Reference \\
+\addlinespace
+\textbf{\color{primary}KPI} & Key Performance Indicator \\
+\addlinespace
+\textbf{\color{primary}LAZY} & Listen, Analyze, Zoom, Yield \\
+\addlinespace
+\textbf{\color{primary}LOL} & Logic, Oversight, Layering \\
+\addlinespace
+\textbf{\color{primary}MVP} & Minimum Viable Product \\
+\addlinespace
+\textbf{\color{primary}OWASP} & Open Web Application Security Project \\
+\addlinespace
+\textbf{\color{primary}PDF} & Portable Document Format \\
+\addlinespace
+\textbf{\color{primary}PNF} & Programa Nacional de Formación \\
+\addlinespace
+\textbf{\color{primary}PNFI} & Programa Nacional de Formación en Informática \\
+\addlinespace
+\textbf{\color{primary}PSI/T} & Proyecto Socio-Integrador/Tecnológico \\
+\addlinespace
+\textbf{\color{primary}QA} & Quality Assurance \\
+\addlinespace
+\textbf{\color{primary}RF} & Requisito Funcional \\
+\addlinespace
+\textbf{\color{primary}RNF} & Requisito No Funcional \\
+\addlinespace
+\textbf{\color{primary}SIW} & Sistema de Información Web \\
+\addlinespace
+\textbf{\color{primary}SPA} & Single Page Application \\
+\addlinespace
+\textbf{\color{primary}STRIDE} & Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege \\
+\addlinespace
+\textbf{\color{primary}UAT} & User Acceptance Testing \\
+\addlinespace
+\textbf{\color{primary}UI} & User Interface \\
+\addlinespace
+\textbf{\color{primary}UID} & User Identifier \\
+\addlinespace
+\textbf{\color{primary}UML} & Unified Modeling Language \\
+\addlinespace
+\textbf{\color{primary}UPTT-MBI} & Universidad Politécnica Territorial del Estado Trujillo \enquote{Mario Briceño Iragorry} \\
+\addlinespace
+\textbf{\color{primary}UX} & User Experience \\
+\addlinespace
+\textbf{\color{primary}XP} & Extreme Programming \\
+\bottomrule
+\end{tabular}
+\end{table}
+\newpage
+
+\cleardoublepage
+\thispagestyle{empty}
+\vspace*{\fill}
+\begin{flushright}
+\begin{minipage}{0.6\textwidth}
+\large\itshape
+«La efectividad de un equipo no depende del número de participantes, sino de la claridad de sus contribuciones.»
+\end{minipage}
+\end{flushright}
+\vspace*{\fill}
+\newpage
+
 \mainmatter
 \chapter{Introducción}
 El desarrollo de software moderno enfrenta un desafío constante: equilibrar las necesidades reales de los usuarios con la implementación técnica de soluciones eficientes, seguras y sostenibles. A lo largo de los años han surgido numerosos marcos de trabajo y metodologías, tales como Agile, Scrum, Kanban y Extreme Programming (XP), los cuales han contribuido significativamente a la organización de equipos y proyectos de software. Sin embargo, muchos de estos enfoques fueron diseñados para entornos donde se asume una participación activa y relativamente equilibrada de todos los integrantes del equipo.
@@ -246,19 +390,23 @@ Finalmente, este documento presenta los fundamentos conceptuales de ambos marcos
 Y sí, aunque los nombres LAZY y LOL puedan parecer poco convencionales en un primer momento, la ingeniería de software ha demostrado repetidamente que las buenas ideas no dependen de nombres serios, sino de resultados serios.
 
 
-\chapter*{Manifiesto LOL-LAZY}
-\addcontentsline{toc}{chapter}{Manifiesto LOL-LAZY}
+\chapter*{Manifiesto LAZY-LOL}
+\addcontentsline{toc}{chapter}{Manifiesto LAZY-LOL}
+
+\begin{tcolorbox}[colback=gray!5, colframe=black!60, title=Manifiesto de Principios]
 
 \begin{enumerate}
-\item Las necesidades reales por encima de las suposiciones.
-\item La evidencia por encima de la intuición no validada.
-\item La simplicidad por encima de la complejidad preventiva.
-\item La adaptación por encima de la rigidez metodológica.
-\item Las personas por encima de los artefactos.
-\item La comprensión antes de la implementación.
-\item La trazabilidad entre problema y solución.
-\item El impacto social por encima del volumen de código.
+    \item Las necesidades reales por encima de las suposiciones no validadas.
+    \item La evidencia empírica por encima de la intuición.
+    \item La simplicidad por encima de la complejidad innecesaria.
+    \item La adaptación por encima de la rigidez metodológica.
+    \item Las personas por encima de los procesos y artefactos.
+    \item La comprensión del problema por encima de la implementación de la solución.
+    \item La trazabilidad entre el problema y la solución como principio fundamental.
+    \item El impacto social por encima del volumen de implementación técnica.
 \end{enumerate}
+
+\end{tcolorbox}
 
 \chapter{El Puente Perdido}
 
@@ -279,39 +427,17 @@ que le dio origen.
 
 
 
-El desarrollo de software moderno enfrenta un desafío constante: equilibrar las necesidades reales de los usuarios con la implementación técnica de soluciones eficientes, seguras y sostenibles. A lo largo de los años han surgido numerosos marcos de trabajo y metodologías, tales como Agile, Scrum, Kanban y Extreme Programming (XP), los cuales han contribuido significativamente a la organización de equipos y proyectos de software. Sin embargo, muchos de estos enfoques fueron diseñados para entornos donde se asume una participación activa y relativamente equilibrada de todos los integrantes del equipo.
-
-En el contexto académico, especialmente en proyectos socio-tecnológicos desarrollados por estudiantes universitarios, esta premisa no siempre se cumple. Los equipos suelen estar conformados por miembros con distintos niveles de experiencia, disponibilidad, motivación y compromiso. Como consecuencia, la ejecución del proyecto puede depender de uno o pocos integrantes, mientras que otros participan de manera limitada o exclusivamente observacional. Aunque esta situación es frecuente, pocas metodologías la abordan de forma explícita.
-
-Adicionalmente, los proyectos socio-tecnológicos presentan una particularidad que no siempre es considerada por los marcos tradicionales de desarrollo: antes de construir una solución tecnológica, es necesario comprender un problema social. Esto implica realizar actividades de investigación, observación, análisis y validación con comunidades o grupos de interés, generando un conjunto de requisitos que posteriormente servirán como base para el desarrollo del software.
-
-Con el objetivo de abordar ambos desafíos, este trabajo propone una arquitectura metodológica compuesta por dos marcos complementarios: LAZY y LOL.
-
-LAZY (Listen, Analyze, Zoom, Yield) es un marco de investigación socio-tecnológica orientado a identificar, analizar y transformar necesidades sociales en requisitos técnicamente accionables. Su propósito principal es reducir la distancia existente entre el diagnóstico social y la planificación del desarrollo, proporcionando un proceso estructurado para convertir observaciones y hallazgos en objetivos concretos de software.
-
-Por su parte, LOL (Logic, Oversight, Layering) es un marco de desarrollo de software centrado en la definición lógica del sistema, la supervisión continua de la calidad y la seguridad, y la construcción por capas de soluciones tecnológicas. LOL incorpora principios de ingeniería de software, aseguramiento de calidad y pensamiento orientado a la seguridad, promoviendo ciclos iterativos de construcción y validación.
-
-Una característica distintiva de LOL es la incorporación de roles de participación adaptativa. En lugar de asumir que todos los miembros del equipo desempeñarán funciones técnicas equivalentes, el marco reconoce distintos niveles de contribución, permitiendo la existencia de participantes con responsabilidades de observación, validación o representación de usuarios. Esta aproximación busca reflejar de manera más realista la dinámica de numerosos proyectos académicos y multidisciplinarios.
-
-La integración de ambos marcos establece un flujo continuo que inicia con la identificación de una necesidad social mediante LAZY y culmina con la implementación de una solución tecnológica a través de LOL. De esta forma, se propone una visión unificada donde la investigación social y el desarrollo de software dejan de ser procesos independientes para convertirse en componentes de una misma estrategia de resolución de problemas.
-
-Finalmente, este documento presenta los fundamentos conceptuales de ambos marcos, sus roles, ciclos y mecanismos de integración, así como un caso de estudio basado en el desarrollo de una aplicación de gestión de tareas. El objetivo es evaluar la viabilidad de esta propuesta como una alternativa adaptable para proyectos socio-tecnológicos en contextos académicos y profesionales.
-
-Y sí, aunque los nombres LAZY y LOL puedan parecer poco convencionales en un primer momento, la ingeniería de software ha demostrado repetidamente que las buenas ideas no dependen de nombres serios, sino de resultados serios.
-
-
-
 \chapter{Planteamiento del Problema}
 
 El desarrollo de software y la investigación socio-tecnológica son disciplinas que tradicionalmente han evolucionado de manera paralela. Mientras que los procesos de investigación buscan comprender necesidades humanas, problemáticas sociales y contextos organizacionales, los procesos de desarrollo se enfocan en la construcción de soluciones tecnológicas capaces de responder a dichos desafíos. Sin embargo, en numerosos entornos académicos y profesionales, la transición entre ambas etapas carece de una estructura clara y formalizada.
 
-En los proyectos socio-tecnológicos es común encontrar una desconexión entre el diagnóstico social y la implementación técnica. Los resultados obtenidos durante entrevistas, encuestas, observaciones o análisis comunitarios suelen transformarse en extensos documentos que posteriormente deben ser interpretados por los equipos de desarrollo. Este proceso puede provocar pérdida de información, ambigüedades en los requisitos y dificultades para garantizar que la solución final responda efectivamente a las necesidades identificadas.
+Entre el diagnóstico social y la implementación técnica de un proyecto existe, casi siempre, un paso de traducción: los resultados obtenidos durante entrevistas, encuestas, observaciones o análisis comunitarios deben transformarse en información que un equipo de desarrollo pueda usar directamente. Cuanto más formal sea ese paso, menor es el riesgo de que algo se pierda en el camino.
 
 Por otra parte, muchos marcos de desarrollo de software contemporáneos fueron diseñados bajo la premisa de equipos altamente colaborativos, con niveles de participación relativamente homogéneos entre sus integrantes. En la práctica, especialmente dentro de contextos académicos, esta situación no siempre ocurre. Los equipos suelen estar conformados por personas con distintos niveles de experiencia, disponibilidad, interés o conocimientos técnicos. Como consecuencia, la distribución real del trabajo puede diferir significativamente de la distribución teórica planteada por las metodologías tradicionales.
 
 Esta diferencia entre los modelos ideales y las condiciones reales genera diversos problemas. Entre ellos destacan la sobrecarga de ciertos integrantes del equipo, la dificultad para asignar responsabilidades adecuadas a participantes con perfiles no técnicos, la falta de mecanismos formales para integrar contribuciones observacionales o consultivas y la ausencia de procesos que permitan mantener la continuidad del proyecto cuando la participación del equipo es desigual.
 
-Adicionalmente, el creciente uso de herramientas basadas en inteligencia artificial, automatización y análisis asistido por software plantea nuevas oportunidades que aún no son abordadas de manera explícita por muchos marcos tradicionales. La capacidad de utilizar sistemas inteligentes para apoyar procesos de investigación, validación, supervisión y desarrollo abre la posibilidad de replantear la forma en que se estructuran los proyectos socio-tecnológicos.
+Adicionalmente, el creciente uso de herramientas basadas en inteligencia artificial, automatización y análisis asistido por software está transformando la forma en que se investigan, documentan y desarrollan proyectos socio-tecnológicos. Esta tendencia abre la posibilidad de replantear, en el futuro, la forma en que se estructuran este tipo de proyectos.
 
 Ante esta situación surge la necesidad de una propuesta que permita integrar de forma coherente la investigación social y el desarrollo de software, al mismo tiempo que reconoce la diversidad de roles y niveles de participación presentes en equipos reales.
 
@@ -332,7 +458,6 @@ Esta experiencia me llevó a valorar la investigación previa como una actividad
 
 \chapter{Marco Teórico y Trabajos Relacionados}
 
-\section{Introducción}
 
 El desarrollo de software ha evolucionado significativamente durante las últimas décadas. A medida que los sistemas se han vuelto más complejos, las organizaciones y los equipos de trabajo han requerido mecanismos que permitan coordinar esfuerzos, administrar recursos y garantizar la calidad de los productos desarrollados.
 
@@ -358,7 +483,7 @@ Sin embargo, Agile asume una interacción frecuente entre los miembros del equip
 
 \section{Scrum}
 
-Scrum es uno de los marcos ágiles más difundidos en la industria del software.
+Scrum (Schwaber y Sutherland, 2020) es uno de los marcos ágiles más difundidos en la industria del software.
 
 Su estructura se basa en ciclos cortos denominados Sprints, dentro de los cuales el equipo desarrolla incrementos funcionales del producto. Scrum define roles específicos como Product Owner, Scrum Master y Development Team, además de ceremonias periódicas para la planificación, seguimiento y revisión del trabajo realizado.
 
@@ -372,7 +497,7 @@ En proyectos académicos, estas condiciones no siempre se presentan de forma con
 
 \section{Kanban}
 
-Kanban es un marco de gestión visual orientado a optimizar el flujo de trabajo.
+Kanban (Anderson, 2010) es un marco de gestión visual orientado a optimizar el flujo de trabajo.
 
 Su principal característica consiste en representar tareas mediante tableros visuales que permiten observar el estado actual de cada actividad. Este enfoque facilita la identificación de cuellos de botella y promueve una mejora continua basada en datos observables.
 
@@ -384,9 +509,9 @@ Sin embargo, Kanban se concentra principalmente en la gestión del flujo de trab
 
 \section{Extreme Programming (XP)}
 
-Extreme Programming (XP), propuesta por Kent Beck, constituye una de las metodologías ágiles más influyentes dentro de la ingeniería de software.
+Extreme Programming (XP), propuesta por Kent Beck (Beck, 2000), constituye una de las metodologías ágiles más influyentes dentro de la ingeniería de software.
 
-XP promueve prácticas orientadas a maximizar la calidad del código y la capacidad de adaptación frente a cambios en los requisitos. Entre sus prácticas más conocidas se encuentran la programación en parejas, la integración continua, las pruebas automatizadas y la refactorización constante.
+XP promueve prácticas orientadas a maximizar la calidad del código y la capacidad de adaptación frente a cambios en los requisitos. Entre sus prácticas más conocidas se encuentran la programación en parejas, la integración continua, las pruebas automatizadas y la refactorización (Fowler, 2018) constante.
 
 Uno de los principios fundamentales de XP es que la simplicidad constituye una ventaja estratégica. En lugar de intentar predecir todos los escenarios futuros, XP propone desarrollar únicamente aquello que resulta necesario en el momento actual, permitiendo que el sistema evolucione gradualmente.
 
@@ -400,7 +525,7 @@ A pesar de ello, XP aporta una visión valiosa sobre la importancia de la simpli
 
 \section{Design Science Research}
 
-Design Science Research (DSR) es un enfoque de investigación orientado a la creación de artefactos capaces de resolver problemas identificados en contextos reales.
+Design Science Research (DSR) (Hevner et al., 2004) es un enfoque de investigación orientado a la creación de artefactos capaces de resolver problemas identificados en contextos reales.
 
 Dentro de este paradigma, un artefacto puede tomar diversas formas, incluyendo modelos, métodos, procesos, algoritmos o sistemas de software.
 
@@ -412,7 +537,7 @@ Este enfoque resulta particularmente relevante para proyectos de ingeniería de 
 
 \section{Action Research}
 
-Action Research es una metodología de investigación basada en la intervención directa sobre una realidad específica con el objetivo de comprenderla y mejorarla simultáneamente.
+Action Research (Baskerville, 1999) es una metodología de investigación basada en la intervención directa sobre una realidad específica con el objetivo de comprenderla y mejorarla simultáneamente.
 
 Su estructura suele desarrollarse mediante ciclos de observación, análisis, acción y reflexión.
 
@@ -439,9 +564,17 @@ Estas limitaciones constituyen la motivación principal para la propuesta de los
 
 
 \chapter{El Proyecto Socio-Integrador/Tecnológico como Contexto de Investigación}
-\section{Introducción: Un Formato que No Es una Tesis}
+\section{ Un Formato que No Es una Tesis}
 \begin{itemize}
-\item Quien no conoce el sistema universitario venezolano podría asumir que el Proyecto Socio-Integrador/Tecnológico (PSI/T) es simplemente el equivalente local de una tesis de grado. Sería un error comprensible, pero tiene consecuencias metodológicas importantes. El PSI/T no es una tesis. No llega hasta proponer una solución y detenerse. No vive en el papel. Requiere un producto tangible, un beneficiario real y una comunidad que lo use. Entender esta diferencia es indispensable para comprender por qué los frameworks LOL y LAZY surgen de ese contexto específico y no de otro.
+\item Quien no conoce el sistema universitario venezolano podría asumir que el Proyecto Socio-Integrador/Tecnológico (PSI/T) es simplemente el equivalente local de una tesis de grado. Sería un error comprensible, pero tiene consecuencias metodológicas importantes.
+
+Una tesis de grado puede, y con frecuencia lo hace, producir también un resultado tangible: un prototipo funcional, una herramienta real, incluso un proyecto que trasciende la vida académica. La diferencia entre ambos formatos no está, entonces, en si el resultado es un producto o un documento, sino en dos condiciones estructurales que rara vez coinciden en una tesis.
+
+Primero, la recurrencia: el PSI/T no es un evento de cierre único, sino un eje curricular que se repite en cada trayecto formativo, año tras año, con nuevos beneficiarios y nuevos equipos. Una tesis, en cambio, suele ser un ejercicio individual concentrado al final del programa, que no vuelve a repetirse.
+
+Segundo, la libertad metodológica: el PSI/T opera bajo restricciones institucionales fijas que una tesis normalmente no tiene —una línea de investigación negociada con la comunidad (Artículo 7h), un equipo de tamaño regulado por normativa (Artículo 13), y un beneficiario comunitario real que forma parte del comité evaluador. La tesis, por contraste, ofrece al estudiante bastante más libertad sobre el alcance, el enfoque y el ritmo de su propio trabajo.
+
+Entender esta diferencia —de recurrencia institucional y restricción normativa, no de si hay o no un producto final— es indispensable para comprender por qué los frameworks LOL y LAZY surgen de ese contexto específico y no de otro.
 \item Este capítulo explica qué es el PSI/T, cómo se organiza dentro del sistema de Programas Nacionales de Formación (PNF), cuáles son sus reglas reales y, sobre todo, por qué las metodologías convencionales que se enseñan en los PNF ---XP, historias de usuario, UML--- asumen condiciones que ese contexto raramente cumple.
 \end{itemize}
 \section{Qué es el PSI/T: Definición Oficial y sus Implicaciones}
@@ -544,7 +677,7 @@ Estas limitaciones constituyen la motivación principal para la propuesta de los
 \end{itemize}
 \section{Síntesis del Capítulo}
 \begin{itemize}
-\item El Proyecto Socio-Integrador/Tecnológico es un formato único de investigación-desarrollo que no tiene equivalente directo en los sistemas universitarios convencionales. Sus reglas formales ---establecidas en el Reglamento PSIT de 2017 de la UPTT-MBI--- exigen al estudiante un producto tecnológico tangible, una comunidad beneficiaria real, una red de actores con roles formales y un proceso documentado que integre investigación y desarrollo en un único informe.
+\item El Proyecto Socio-Integrador/Tecnológico es un formato único de investigación-desarrollo que no tiene equivalente directo en los sistemas universitarios convencionales. Sus reglas formales ---establecidas en el Reglamento PSI/T de 2017 de la UPTT-MBI--- exigen al estudiante un producto tecnológico tangible, una comunidad beneficiaria real, una red de actores con roles formales y un proceso documentado que integre investigación y desarrollo en un único informe.
 \item Las metodologías de desarrollo de software convencionales, incluyendo las ágiles, fueron diseñadas para contextos con condiciones que el PSI/T raramente cumple: clientes disponibles para co-crear historias de usuario, equipos con roles diferenciados, infraestructura estable y ritmos de trabajo predecibles. Cuando esas condiciones no se cumplen, aplicar esas metodologías produce no exactamente mejores proyectos, sino proyectos con documentación que no refleja lo que realmente ocurrió.
 \item LOL y LAZY no proponen ignorar las metodologías existentes. Proponen un lenguaje más honesto para describir el proceso real de investigación-desarrollo en contextos asimétricos. El PSI/T es el escenario donde ese lenguaje fue necesario y donde puede ser validado con evidencia empírica concreta.
 \item En los capítulos siguientes, se mostrará cómo ese proceso real ---documentado en el caso de estudio de un sistema de gestión para un CC comunitario--- puede ser re-leído a través de los frameworks LOL y LAZY, y qué aporta esa re-lectura tanto al rigor académico como a la utilidad práctica del trabajo.
@@ -623,7 +756,7 @@ El software, por su propia naturaleza física, tiende naturalmente a la entropí
 
 \section{La Economía del Framework}
 
-La Curva del Costo del Cambio: En la ingeniería de software tradicional, existe el dogma de que el costo de modificar un componente aumenta de forma exponencial a medida que el proyecto avanza en el tiempo. Para mitigar este riesgo, los equipos caen en el error del Diseño Detallado Up-Front (BDUF), gastando semanas en planificar infraestructuras que los requisitos de usuario podrían invalidar mañana.
+La Curva del Costo del Cambio: En la ingeniería de software tradicional, existe el dogma de que el costo de modificar un componente aumenta de forma exponencial a medida que el proyecto avanza en el tiempo. Para mitigar este riesgo, los equipos caen en el error del Big Design Up Front (BDUF),gastando semanas en planificar infraestructuras que los requisitos de usuario podrían invalidar mañana.
 
 Nuestra arquitectura metodológica tiene como objetivo técnico aplanar la curva del costo del cambio a través de la simplicidad y la modularidad estricta. Si el código está desacoplado y es hiper-simple, reescribir un módulo en el mes doce no debería costar significativamente más que haberlo diseñado en el mes uno. Cuando el costo de cambiar el software se mantiene bajo y plano, desaparece el incentivo económico de sobrediseñar en las etapas tempranas.
 
@@ -733,7 +866,7 @@ Estas declaraciones no son reglas técnicas. Son compromisos filosóficos que gu
 \centering
 \begin{tabular}{p{0.3\textwidth} p{0.65\textwidth}}
 \toprule
-\textbf{01} & \textbf{Avanzo sin esperar consenso. El consenso es valioso cuando todos participan. Cuando no es así, la espera del consenso es simplemente inacción disfrazada de proceso. En un entorno asimétrico, quien escribe el código tiene autoridad de decisión. Consulto cuando puedo; avanzo cuando debo.} \\
+\textbf{01} & \textbf{Avanzo sin esperar consenso, pero no sin límite. El consenso es valioso cuando todos participan. Cuando no es así, la espera del consenso es simplemente inacción disfrazada de proceso. En un entorno asimétrico, quien escribe el código tiene autoridad sobre cómo se implementa. Esa autoridad no se extiende a decisiones que redefinen el problema o afectan a otros roles: esas sí se consultan, aunque la respuesta tarde. Consulto cuando la decisión no es solo mía; avanzo cuando sí lo es.} \\
 \midrule
 \bottomrule
 \end{tabular}
@@ -757,7 +890,7 @@ Estas declaraciones no son reglas técnicas. Son compromisos filosóficos que gu
 \centering
 \begin{tabular}{p{0.3\textwidth} p{0.65\textwidth}}
 \toprule
-\textbf{03} & \textbf{La simplicidad es mi primera línea de defensa. No construyo para escenarios hipotéticos del futuro. Construyo para el problema real del presente. La arquitectura más elegante es la más simple que funciona hoy sin impedir el cambio mañana. La sobreingeniería no es habilidad; es ansiedad técnica disfrazada de profesionalismo.} \\
+\textbf{03} & \textbf{La simplicidad es mi primera línea de defensa. No construyo para escenarios hipotéticos del futuro. Construyo para el problema real del presente. La arquitectura más elegante es la más simple que funciona hoy sin impedir el cambio mañana. La sobreingeniería casi nunca es más habilidad; casi siempre es tiempo gastado en un problema que todavía no existe.} \\
 \midrule
 \bottomrule
 \end{tabular}
@@ -781,7 +914,7 @@ Estas declaraciones no son reglas técnicas. Son compromisos filosóficos que gu
 \centering
 \begin{tabular}{p{0.3\textwidth} p{0.65\textwidth}}
 \toprule
-\textbf{05} & \textbf{Las máquinas revisan el código; yo no ruego a mis compañeros. La revisión de calidad no es una conversación personal: es una pipeline de CI/CD. El linter, los tests automatizados y el compilador son mis árbitros neutrales. Si el código pasa, está aprobado. Si no pasa, el sistema lo notifica directamente a quien lo escribió. Sin fricción personal, sin desgaste emocional.} \\
+\textbf{05} & \textbf{Las máquinas revisan el código. La revisión de calidad no depende de la disponibilidad de otra persona: es una pipeline de CI/CD. El linter, los tests automatizados y el compilador son mis árbitros neutrales. Si el código pasa, está aprobado. Si no pasa, el sistema lo notifica directamente a quien lo escribió. La calidad no espera a que alguien tenga tiempo de revisarla.} \\
 \midrule
 \bottomrule
 \end{tabular}
@@ -793,7 +926,7 @@ Estas declaraciones no son reglas técnicas. Son compromisos filosóficos que gu
 \centering
 \begin{tabular}{p{0.3\textwidth} p{0.65\textwidth}}
 \toprule
-\textbf{06} & \textbf{Postergo las decisiones complejas hasta el último momento responsable. No gasto energía decidiendo hoy la arquitectura que voy a necesitar en seis meses. Las decisiones técnicas se toman cuando hay evidencia suficiente para tomarlas bien. Mientras tanto, la solución más simple que funcione es siempre la correcta.} \\
+\textbf{06} & \textbf{Difiero la arquitectura, no la validación. No gasto energía decidiendo hoy la estructura que voy a necesitar en seis meses; esas decisiones se toman cuando hay evidencia suficiente para tomarlas bien. Pero difiero la arquitectura, no la certeza técnica: antes de construir sobre un supuesto, lo pruebo barato. Mientras tanto, la solución más simple que funcione es siempre la correcta.} \\
 \midrule
 \bottomrule
 \end{tabular}
@@ -830,6 +963,18 @@ Estas declaraciones no son reglas técnicas. Son compromisos filosóficos que gu
 \begin{tabular}{p{0.3\textwidth} p{0.65\textwidth}}
 \toprule
 \textbf{09} & \textbf{La participación tiene niveles. Todos son válidos. No todos mis compañeros van a programar. Algunos van a documentar, validar, observar o dar retroalimentación desde la perspectiva del usuario. Eso es participación real, aunque no sea código. LOL define roles para cada nivel de contribución, porque un equipo funciona cuando cada persona aporta lo que genuinamente puede aportar, no lo que la metodología asume que debería.} \\
+\midrule
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+\begin{table}[htbp]
+\centering
+\begin{tabular}{p{0.3\textwidth} p{0.65\textwidth}}
+\toprule
+\textbf{10} & \textbf{El costo es mío, no del equipo. Trabajar así significa que cuando me equivoco, nadie más lo detecta a tiempo. No hay un segundo par de ojos revisando antes de que el error llegue a producción. Acepto ese riesgo a cambio de velocidad, y lo compenso con más disciplina técnica, no con menos: más tests, más CI/CD, más documentación de la que un equipo completo necesitaría. El Solo-First no elimina el riesgo del trabajo solitario; lo hace visible y lo pone bajo mi control.} \\
 \midrule
 \bottomrule
 \end{tabular}
@@ -896,9 +1041,9 @@ Si estás leyendo esto y no eres el desarrollador principal del proyecto, esta s
 
 
 
-No eres un estorbo. No eres un problema que el framework tuvo que resolver. Eres una parte real del sistema, con un rol diseñado específicamente para lo que puedes contribuir.
+El LOL Framework define cuatro niveles de participación porque la realidad de los equipos es diversa: algunas personas programan, otras documentan, otras validan, otras observan y reportan. Cada nivel tiene un rol diseñado para lo que esa persona puede aportar en las condiciones reales del proyecto — no una versión reducida del rol de quien programa.
 
-El LOL Framework define cuatro niveles de participación porque la realidad de los equipos es diversa: algunas personas programan, otras documentan, otras validan, otras observan y reportan. Ninguno de estos niveles es inferior. Lo inferior es la ausencia total de contribución.
+Estos niveles no son una jerarquía de importancia; son una división de trabajo. El único nivel que el framework no puede aprovechar es la ausencia de participación — no porque valga menos como persona, sino porque, simplemente, no hay información ni trabajo que el sistema pueda usar.
 
 
 
@@ -940,13 +1085,14 @@ Yo, como desarrollador Solo-First, me comprometo a: Avanzar sin paralizarme espe
 
 
 
-"El software evoluciona, las comunidades evolucionan
+\begin{authorobservation}
 
-y las metodologías también deberían hacerlo."
+ '' El software evoluciona, las comunidades evolucionan
+
+y las metodologías también deberían hacerlo.'' 
 
 --- Reflexión del Autor · LOL Framework
 
-\begin{authorobservation}
 LOL Framework · Solo-First · LAZY + LOL · 2026
 \end{authorobservation}
 
@@ -1012,6 +1158,16 @@ La pregunta central de esta fase es:
 
 El resultado esperado es un inventario inicial de necesidades, dificultades y oportunidades identificadas dentro del entorno analizado.
 
+\subsection{¿Por qué Escuchar y no Observar?}
+
+Muchas metodologías de investigación comienzan con la observación. Sin embargo, en proyectos socio-tecnológicos la observación por sí sola puede resultar insuficiente.
+
+Observar permite identificar comportamientos visibles. Escuchar permite comprender motivaciones, preocupaciones, restricciones y experiencias que no siempre son evidentes desde el exterior.
+
+Mientras la observación muestra lo que las personas hacen, la escucha ayuda a comprender por qué lo hacen.
+
+Por esta razón, el framework LAZY inicia con la fase Listen. Antes de diseñar una solución tecnológica, es necesario comprender la realidad que la origina.
+
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
 \section{Fase A: Analyze}
@@ -1030,6 +1186,14 @@ La pregunta central de esta fase es:
 
 El resultado esperado es una comprensión más profunda de las causas que generan la situación observada.
 
+\subsection{Principio de Traducción}
+
+Las comunidades rara vez expresan sus necesidades en términos de bases de datos, APIs, arquitecturas o requisitos funcionales.
+
+Los usuarios describen problemas, experiencias y necesidades. Corresponde al ingeniero traducir esa información en componentes técnicos que puedan ser implementados mediante software.
+
+En este sentido, la fase Analyze actúa como un proceso de traducción entre el lenguaje humano y el lenguaje técnico.
+
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
 \section{Fase Z: Zoom}
@@ -1047,6 +1211,14 @@ La pregunta central de esta fase es:
 \end{keyquestion}
 
 El resultado esperado es una definición clara del problema prioritario y de los límites del proyecto.
+
+\subsection{Axioma de Dependencia y Control}
+
+Cuando varios requisitos compiten por los mismos recursos, deben priorizarse aquellos cuya ejecución depende principalmente del equipo de desarrollo.
+
+Los requisitos que dependen de factores externos, como reuniones, aprobaciones o disponibilidad de terceros, no deben bloquear el avance de actividades que pueden ejecutarse de forma autónoma.
+
+Este principio busca reducir la incertidumbre y mantener la continuidad del desarrollo.
 
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
@@ -1251,7 +1423,6 @@ Sin embargo, algunos de los errores más costosos que encontré no fueron errore
 
 \chapter{Roles y Niveles de Participación}
 
-\section{Introducción}
 
 Existe una tendencia frecuente en los marcos tradicionales de desarrollo a asumir que todos los integrantes de un equipo participarán de manera similar durante todo el proyecto. Aunque esta premisa resulta razonable desde una perspectiva organizacional, la experiencia práctica demuestra que la realidad suele ser más diversa.
 
@@ -1442,7 +1613,7 @@ Cuando una actividad requiere múltiples perspectivas, la participación adicion
 El objetivo no consiste en maximizar la cantidad de participantes por tarea, sino maximizar el valor generado por cada participación.
 
 \begin{authorobservation}
-Durante un proyecto universitario observé que dos integrantes del equipo participaban de forma muy limitada. Mi reacción inicial fue considerar la situación como un problema organizacional. Sin embargo, al analizar el trabajo realizado, descubrí algo más interesante: muchas tareas habían sido completadas por una sola persona porque la naturaleza de esas actividades no requería más participantes.
+Durante un proyecto universitario observé que dos integrantes del equipo participaban de forma muy limitada. Mi reacción inicial fue considerar la situación como un problema organizacional. Sin embargo, al revisar el historial de commits y las tareas asignadas, algo se volvió evidente: las actividades que esas dos personas habían tomado —documentación, validación con usuarios finales— estaban completas y bien hechas. El problema no era la cantidad de su participación, sino que yo estaba midiendo su aporte con la misma vara que usaba para medir el código, cuando su contribución nunca fue código.
 
 Esto me llevó a cuestionar una idea que consideraba evidente: que todos los miembros de un equipo deben participar siempre de la misma manera y con la misma intensidad. A partir de esa experiencia surgieron los conceptos de Participación Adaptativa y Suficiencia Operativa, que posteriormente fueron incorporados al framework LOL.
 \end{authorobservation}
@@ -1451,7 +1622,6 @@ Esto me llevó a cuestionar una idea que consideraba evidente: que todos los mie
 
 \chapter{Integración entre LAZY y LOL}
 
-\section{Introducción}
 
 Hasta este punto se han presentado dos marcos complementarios: LAZY, orientado a la investigación socio-tecnológica, y LOL, orientado al desarrollo de soluciones tecnológicas.
 
@@ -1523,6 +1693,8 @@ Su contenido incluye:
 \end{itemize}
 
 La finalidad de este documento es asegurar que la información obtenida durante la investigación pueda ser utilizada directamente durante el desarrollo.
+
+En el caso de estudio presentado más adelante en este libro, este documento se materializa bajo el nombre de \textbf{Bitácora de Cruce}, en el que cada requisito funcional aparece emparejado con los requisitos no funcionales que lo completan, formando unidades de especificación listas para ser construidas.
 
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
@@ -1620,7 +1792,6 @@ De esta forma, la arquitectura LAZY-LOL busca proporcionar un recorrido completo
 
 \chapter{Caso de Estudio: Sistema de Información Web para la Comunidad La Barranca}
 
-\section{Introducción}
 
 El presente capítulo documenta la aplicación de la arquitectura metodológica LAZY-LOL en el desarrollo del Sistema de Información Web (SIW) para el Consejo Comunal La Barranca (CC La Barranca), proyecto de carácter socio-tecnológico desarrollado en el contexto de un programa universitario de Ingeniería de Software.
 
@@ -1690,48 +1861,136 @@ Anuncios se pierden en WhatsApp & Módulo de comunicados persistente con lectura
 Padrón de familias en Excel no compartido & CRUD de familias con control de acceso por rol & Colección /families con isManager() para escritura \\
 Certificados emitidos sin registro & Generación de PDF con persistencia en BD & Módulo jsPDF + colección /certificates \\
 Distribución de recursos sin trazabilidad & Registro de eventos de entrega con historial & Colección /deliveries con timestamps de servidor \\
-Tres perfiles de usuarios con permisos distintos & Sistema de roles jerárquico verificado en servidor & Función getUserRole() + función isManager() \\
+Tres perfiles de usuarios con permisos distintos & Verificación de roles en servidor (sin jerarquía de privilegios entre perfiles gestores) & Función getUserRole() + función isManager() \\
 Visitantes ocasionales sin registro permanente & Sesiones de acceso temporal sin cuenta permanente & Colección /invitados con sesiones de Firebase Auth \\
 \bottomrule
 \end{tabular}
 \end{table}
 
+La tabla anterior resume la lógica del cruce entre LAZY y LOL. Lo que sigue es el documento completo tal como fue producido al cierre de la fase Yield: la Bitácora de Cruce.
 
+\section{La Bitácora de Cruce: el Documento de Transferencia Completo}
+
+El Documento de Transferencia, presentado de forma conceptual en el Capítulo de Integración entre LAZY y LOL, recibió en este proyecto el nombre coloquial de \textbf{Bitácora de Cruce}: el registro que viaja con el proyecto en el momento exacto en que cruza de la investigación al desarrollo, para que quien continúe no tenga que adivinar nada de lo ya recorrido.
+
+Una bitácora que solo enumera requisitos funcionales en una lista separada de los requisitos no funcionales no es suficiente para que LOL empiece a construir: ambos tipos de requisito, leídos por separado, dejan huecos que el desarrollador termina llenando por su cuenta. Por eso, en esta Bitácora, \textbf{cada Requisito Funcional se presenta junto a los Requisitos No Funcionales que lo completan}, formando una unidad de especificación autosuficiente. Esta es la regla de oro que distingue a la Bitácora de una simple lista de requisitos.
+
+\subsection{Ficha de identificación}
+
+\begin{bitacorafield}{Datos del documento}
+\begin{itemize}
+\item \textbf{Proyecto:} Sistema de Información Web — Consejo Comunal La Barranca (CC-La-Barranca).
+\item \textbf{Origen:} LAZY — Fase Yield.
+\item \textbf{Destino:} LOL — Fase Logic, Iteración 0.
+\item \textbf{Responsable técnico:} Desarrollador principal, Nivel 1 — Participación Directa.
+\item \textbf{Colaboradores (rol Auditor):} Dos integrantes, Niveles 3 y 4 — Participación Consultiva y Observacional, bajo el pilar \textit{Oversight} de LOL.
+\item \textbf{Versión:} 1.0 — primera y única versión emitida antes del inicio del desarrollo.
+\end{itemize}
+\end{bitacorafield}
+
+\subsection{Recapitulación del descubrimiento}
+
+Los campos de problema, contexto, usuarios y objetivos ya fueron documentados en detalle en las fases Listen, Analyze y Zoom descritas anteriormente en este capítulo. La Bitácora los hereda sin repetirlos íntegramente:
+
+\begin{itemize}
+\item \textbf{Problema:} ausencia de un canal centralizado, accesible y permanente para la gestión de información comunitaria (fase Zoom).
+\item \textbf{Contexto:} Consejo Comunal La Barranca, equipo de tres integrantes con participación asimétrica, comunidad con alfabetización digital heterogénea (fase Listen).
+\item \textbf{Usuarios:} gestores operativos, miembros de la comunidad y visitantes ocasionales, cada uno con necesidades de acceso distintas (fase Analyze).
+\item \textbf{Objetivos:} tablón de comunicados, registro de familias, emisión de certificados digitales y registro de entregas, definidos como alcance del MVP (fase Zoom).
+\end{itemize}
+
+\subsection{Especificación funcional: RF emparejados con RNF}
+
+A continuación, cada requisito funcional aparece junto a los requisitos no funcionales que lo
+convierten en una unidad construible. El primero se desarrolla a modo de ejemplo, siguiendo el
+mismo principio con el que cualquier desarrollador reconocería de inmediato un requisito de inicio
+de sesión:
+
+\begin{specunit}{YLD-00 — Autenticación (transversal)}
+El sistema debe permitir a los usuarios iniciar sesión (personal del Consejo Comunal) o acceder
+mediante sesión de invitado (miembros de la comunidad), para que su rol pueda verificarse antes de
+conceder acceso a operaciones protegidas.
+
+\medskip
+\textbf{RNF asociados:}
+\begin{itemize}
+\item El rol del usuario se consulta desde el documento \texttt{/users/\{uid\}} en el servidor
+mediante \texttt{getUserRole()}, nunca se asume desde el cliente (mitigación de escalada de
+privilegios, STRIDE).
+\item Las sesiones de invitado usan autenticación anónima de Firebase, vinculada a un documento
+propio en \texttt{/invitados/\{guestId\}} — el invitado sí se autentica, de forma temporal, no
+opera sin ningún mecanismo de autenticación.
+\item Las credenciales de Firebase se gestionan mediante variables de entorno (\texttt{.env}),
+nunca quedan escritas en el código fuente versionado.
+\end{itemize}
+
+\medskip
+\textit{Por separado, el RF no dice con qué se inicia sesión ni dónde se valida; el RNF no dice
+para qué sirve la validación. Juntos, ya describen el mecanismo de autenticación completo —
+incluyendo el caso del invitado— sin inventar nada.}
+\end{specunit}
+
+El resto de los requisitos funcionales del MVP siguen la misma lógica de emparejamiento:
+
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabular}{p{0.1\textwidth} p{0.16\textwidth} p{0.34\textwidth} p{0.32\textwidth}}
+\toprule
+\textbf{ID} & \textbf{Módulo} & \textbf{Requisito Funcional} & \textbf{Requisitos No Funcionales asociados} \\
+\midrule
+YLD-01 & Gestión de Familias & Registro de núcleo familiar e integrantes. Validar no duplicidad de cédula. & Usabilidad (guardado sin recargar página). \\
+\addlinespace
+YLD-02 & Gestión de Eventos & Crear jornadas de distribución (nombre, fecha, descripción). & Seguridad (creación y edición de jornadas restringida a roles gestores mediante \texttt{isManagerRole}). \\
+\addlinespace
+YLD-03 & Registro de Beneficios & Registrar, por cada familia, los recibos de beneficios recibidos, anidados bajo el registro familiar correspondiente. & Escritura restringida a roles gestores; lectura restringida a usuarios autenticados, preservando la trazabilidad por familia. \\
+\addlinespace
+YLD-04 & Generación de Constancias & Generar listas de familias beneficiadas y no beneficiadas por jornada. & Integridad (la constancia se genera a partir de los datos de \texttt{receipts} ya registrados en servidor, no editables desde el cliente). \\
+\addlinespace
+YLD-05 & Reportes & Calcular distribución demográfica y vulnerabilidad en tiempo real. & Rendimiento (actualización en tiempo real mediante \texttt{onSnapshot} de Firestore, sin necesidad de recargar la página). \\
+\addlinespace
+YLD-06 & Comunicados & Publicar comunicados de lectura pública, con comentarios anidados. & Lectura pública sin autenticación; escritura (publicar comunicado o comentar) restringida a usuarios autenticados, no exclusivo a roles gestores. \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{bitacorafield}{Nota sobre roles}
+Administrador, Vocera Principal y Líder de Calle comparten el mismo nivel técnico de acceso
+(\texttt{isManagerRole == true}); la distinción entre estos tres títulos es organizacional, no de
+permisos. No existe una jerarquía real de privilegios entre ellos.
+\end{bitacorafield}
+
+\subsection{Restricciones conocidas}
+
+\begin{itemize}
+\item Equipo de tres integrantes con participación desigual: un único desarrollador asume la mayor parte de la carga técnica.
+\item Tiempo de desarrollo acotado por el calendario de un programa académico.
+\item Comunidad con niveles heterogéneos de alfabetización digital, lo que exige una interfaz simple antes que una interfaz sofisticada.
+\item Alcance del primer ciclo limitado al MVP definido en la fase Zoom; la gestión avanzada de reportes y roles queda explícitamente fuera de esta versión.
+\end{itemize}
+
+\subsection{Sello de cruce}
+
+\begin{bitacoraseal}
+Este documento confirma que la investigación realizada durante las fases Listen, Analyze y Zoom de LAZY ha sido transformada en unidades de especificación completas —cada RF acompañado de los RNF que lo hacen construible— y que el proyecto está listo para iniciar la Fase Logic de LOL.
+
+\medskip
+\begin{itemize}
+\item[\textcolor{accent}{\textbullet}] Problema validado directamente con la comunidad.
+\item[\textcolor{accent}{\textbullet}] Cada requisito funcional acompañado de sus requisitos no funcionales.
+\item[\textcolor{accent}{\textbullet}] Restricciones del equipo y del contexto declaradas explícitamente.
+\item[\textcolor{accent}{\textbullet}] Documento listo para ser consumido por la Fase Logic.
+\end{itemize}
+
+\medskip
+\textit{A partir de este punto, el equipo deja de investigar y comienza a construir.}
+\end{bitacoraseal}
+
+\par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
 \section{Aplicación del Framework LOL}
 
 \subsection{Stack Tecnológico}
-
-\begin{table}[htbp]
-\centering
-\renewcommand{\arraystretch}{1.4} % Gives 14pt text vertical breathing room
-\small % Makes table text slightly smaller for better proportion
-
-% Standard tabular with fixed-width columns (no extra packages needed)
-\begin{tabular}{p{0.45\textwidth} p{0.45\textwidth}}
-\hline
-\textbf{Agile Clásico dice\ldots} & \textbf{Solo-First dice\ldots} \\
-\hline
-Individuos e interacciones sobre procesos y herramientas. & 
-\textbf{Individuos activos} sobre interacciones vacías. Las herramientas automatizadas compensan las interacciones ausentes. \\
-\hline
-Software funcionando sobre documentación exhaustiva. & 
-Software funcionando sobre documentación exhaustiva. \textit{(Este lo mantenemos exactamente igual; era el correcto desde el principio.)} \\
-\hline
-Colaboración con el cliente sobre negociación de contratos. & 
-\textbf{Retroalimentación real} de la comunidad sobre suposiciones del equipo. El usuario final es el cliente más honesto. \\
-\hline
-Respuesta al cambio sobre seguir un plan. & 
-\textbf{Decisiones basadas en evidencia} sobre debates sin datos. El coraje técnico se construye sobre pruebas automatizadas, no sobre confianza ciega. \\
-\hline
-Simplicidad: el arte de maximizar el trabajo no realizado. & 
-\textbf{Simplicidad como escudo de supervivencia}. En solitario, el código que no escribiste no puede romperse ni necesitar mantenimiento. \\
-\hline
-\end{tabular}
-
-\caption{Comparativa entre los principios de Agile Clásico y la metodología Solo-First.}
-\label{tab:agile_vs_solo_first_case_study}
-\end{table}
 
 El sistema fue construido con el siguiente stack tecnológico, seleccionado bajo el principio de Complejidad Diferida de LOL: tecnologías maduras, bien documentadas y con el menor overhead de configuración posible para un equipo reducido con tiempo académico limitado.
 
@@ -1756,7 +2015,7 @@ Layering — UI \\
 
 \texttt{Firebase Auth} \newline \footnotesize{(v10.12.3)} & 
 Autenticación y gestión de sesiones. & 
-Layering — Autenticación \\
+Oversight — Autenticación \\
 \addlinespace
 
 \texttt{Firebase Firestore} \newline \footnotesize{(v10.12.3)} & 
@@ -1788,7 +2047,7 @@ Oversight — Validación \\
 
 \texttt{.env.example} & 
 Gestión segura de credenciales (anti-hardcoding). & 
-Logic — Configuración \\
+Oversight — Configuración \\
 
 \bottomrule
 \end{tabularx}
@@ -1845,7 +2104,7 @@ de la plataforma utilizada y puede consultarse en el repositorio del proyecto.
 
 El Pilar Oversight del sistema se implementó principalmente a través de las Firebase Security Rules, que actúan como la capa de control de acceso declarativa en el servidor. Estas reglas constituyen el artefacto de Oversight más crítico del sistema: son verificadas por Firebase antes de permitir cualquier operación de lectura o escritura, independientemente de la lógica implementada en el cliente React.
 
-El análisis de amenazas STRIDE aplicado durante la Fase Logic produjo las siguientes mitigaciones, todas implementadas y verificables en el archivo firestore.rules del repositorio:
+El análisis de amenazas STRIDE (Microsoft, 2024) aplicado durante la Fase Logic produjo las siguientes mitigaciones, todas implementadas y verificables en el archivo firestore.rules del repositorio:
 
 
 
@@ -1991,7 +2250,7 @@ Al mismo tiempo, la \enquote{Docking Station} conceptual del framework funcionó
 
 \subsection{Sobre la Seguridad por Diseño}
 
-El análisis STRIDE aplicado en la Fase Logic demostró ser más eficiente que las revisiones de seguridad post-desarrollo. Identificar durante el diseño que los roles debían verificarse desde el servidor ---y no confiar en el token del cliente--- evitó una vulnerabilidad de Elevation of Privilege que habría sido significativamente más costosa de corregir después de que el código funcional ya estuviera escrito.
+El análisis STRIDE aplicado en la Fase Logic permitió anticipar, durante el diseño, una vulnerabilidad que de otro modo se habría detectado más tarde. Identificar que los roles debían verificarse desde el servidor ---y no confiar en el token del cliente--- evitó una vulnerabilidad de Elevation of Privilege que habría sido significativamente más costosa de corregir después de que el código funcional ya estuviera escrito. Este caso ilustra, sin pretender generalizar, el valor de detectar riesgos de seguridad en la fase de diseño.
 
 Esta experiencia respalda empíricamente uno de los principios centrales de LOL Framework: la seguridad como propiedad emergente del diseño, no como corrección posterior.
 
@@ -2004,13 +2263,13 @@ La lección más importante del proyecto La Barranca no es técnica: es que comp
 
 
 
-\chapter{Del Campo al Marco Teórico: Reinterpretación del SIW-CC bajo los Frameworks LOL y LAZY}
+\chapter{Del Campo al Marco Teórico: Reinterpretación del CC-La-Barranca bajo los Frameworks LOL y LAZY}
 
-\section{Introducción: El Problema con XP (o con cómo la contamos)}
+\section{ El Problema con XP (o con cómo la contamos)}
 
 El Sistema de Información Web para el CC La Barranca fue desarrollado oficialmente bajo la metodología Extreme Programming (XP). Esta declaración es técnicamente correcta, académicamente aceptable y metodológicamente... incompleta.
 
-XP describe con precisión las prácticas de codificación empleadas: iteraciones cortas, historias de usuario, pruebas continuas, cliente presente. Lo que XP no describe ---porque no fue diseñado para hacerlo--- es la dinámica real detrás de un equipo asimétrico: quién levantó los requerimientos, quién tomó las decisiones de arquitectura, quién escribió el código cuando el equipo no estaba disponible y quién, al final del día, era el único con contexto completo del sistema.
+XP describe con precisión algunas prácticas de codificación aplicadas en el proyecto: iteraciones cortas, pruebas continuas, retroalimentación permanente con el usuario. Sin embargo, hay aspectos críticos del desarrollo real que XP no describe ---porque no fue diseñado para hacerlo---: cómo se levantaron los requerimientos sin un cliente que supiera articular historias de usuario, cómo se tomaron las decisiones de arquitectura sin un equipo que las validara, y quién escribió el código cuando los demás integrantes no estaban disponibles. En el CC-La-Barranca, los requerimientos no tomaron la forma de historias de usuario al estilo XP. Tomaron la forma de requerimientos funcionales y no funcionales estructurados mediante LAZY, un proceso más cercano al análisis cualitativo con finalidad tecnológica que a los rituales de un equipo ágil completo.
 
 Este capítulo propone una relectura del mismo proyecto bajo dos frameworks complementarios: LOL (Logic-Oversight-Layering) como metodología de desarrollo de software, y LAZY (Listen-Analyze-Zoom-Yield) como metodología de investigación. El argumento central es el siguiente:
 
@@ -2022,9 +2281,9 @@ Lo que sigue no es una revisión histórica ficticia. Es una demostración de qu
 
 \section{La Fase de Investigación como Instancia de LAZY}
 
-LAZY es un acrónimo que describe el proceso de investigación situacional en cinco fases: Listen (escuchar), Analyze (analizar), Zoom (enfocar), Yield (producir). Su premisa fundamental es que el investigador que trabaja en condiciones asimétricas ---con acceso limitado a colaboradores, con una comunidad que no habla el lenguaje técnico--- necesita un proceso de recolección de información que sea riguroso sin ser rígido.
+LAZY es un acrónimo que describe el proceso de investigación situacional en cuatro fases: Listen (escuchar), Analyze (analizar), Zoom (enfocar), Yield (producir). Su premisa fundamental es que el investigador que trabaja en condiciones asimétricas ---con acceso limitado a colaboradores, con una comunidad que no habla el lenguaje técnico--- necesita un proceso de recolección de información que sea riguroso sin ser rígido.
 
-La Parte I y II del informe del SIW-CC documentan, sin saberlo, una implementación textual de LAZY.
+La Parte I y II del informe del CC-La-Barranca documentan, sin saberlo, una implementación textual de LAZY.
 
 
 
@@ -2052,9 +2311,9 @@ La tabla de evaluación cuantitativa (Cuadro 4) que priorizó el Problema 4 sobr
 
 De los cuatro problemas identificados, el proceso de análisis convergió en uno: la ausencia de un Sistema de Información Web. Esto es la fase Zoom: la transición del problema difuso (\enquote{el CC tiene problemas}) al problema accionable (\enquote{el CC necesita un SIW con estas funcionalidades específicas}).
 
-El artefacto que documenta este enfoque son las 15 Historias de Usuario (HU1--HU15). Cada una define con precisión quirúrgica qué necesita cada tipo de actor, en qué contexto y con qué propósito. La suma de las historias es el modelo completo de la solución requerida. No hay ambigüedad, no hay scope creep: hay un conjunto delimitado de necesidades priorizadas.
+El artefacto que documenta este enfoque son los requerimientos funcionales y no funcionales estructurados mediante LAZY. Cada requerimiento define con precisión qué necesita cada tipo de actor, bajo qué condiciones y con qué propósito. La suma de estos requerimientos es el modelo completo de la solución requerida: no hay ambigüedad, no hay \textit{scope creep}, sino un conjunto delimitado de necesidades priorizadas que responden directamente a los hallazgos de campo.
 
-Zoom también se manifiesta en la selección de alternativas (Cuadro 6): entre tres opciones (SIW, red social comunitaria, capacitación), el análisis multicriterio señaló al SIW como la solución con mayor impacto tecnológico y mejor factibilidad. Este no fue un juicio de gusto. Fue el resultado de aplicar criterios a datos.
+Zoom también se manifiesta en la selección de alternativas (Cuadro de alternativas de solución): entre tres opciones (SIW, red social comunitaria, capacitación), el análisis multicriterio señaló al SIW como la solución con mayor impacto tecnológico y mejor factibilidad. Este no fue un juicio de gusto. Fue el resultado de aplicar criterios a datos.
 
 
 
@@ -2062,22 +2321,22 @@ Zoom también se manifiesta en la selección de alternativas (Cuadro 6): entre t
 
 La fase Yield es el momento en que la investigación deja de ser investigación y se convierte en insumo para el desarrollo. En LAZY, el Documento de Transferencia es el artefacto que formaliza este cruce: todo lo que la investigación descubrió se empaqueta en un formato que el desarrollador (que en equipos asimétricos puede ser el mismo investigador) puede consumir directamente.
 
-En el SIW-CC, este documento de transferencia existe implícitamente: es la consolidación del diagnóstico, las historias de usuario y el diseño de la base de datos NoSQL (colecciones families, members, deliveries, receipts, users) que se convirtió en el esquema arquitectónico del sistema. La transferencia de LAZY a LOL ocurrió en el Día 1 de la Iteración 0, cuando el equipo transformó las historias en decisiones técnicas concretas.
+En el CC-La-Barranca, este documento de transferencia existe con toda precisión: es la consolidación del diagnóstico situacional, los requerimientos funcionales y no funcionales, y el diseño de la base de datos NoSQL (colecciones \texttt{families}, \texttt{members}, \texttt{deliveries}, \texttt{receipts}, \texttt{users}) que se convirtió en el esquema arquitectónico del sistema. La transferencia de LAZY a LOL ocurrió en el Día 1 de la Iteración 0, cuando el equipo transformó los requerimientos en decisiones técnicas concretas.
 
 
 
-Cuadro 14.1 --- Correspondencia entre las fases LAZY y los artefactos del SIW-CC
+Cuadro 14.1 --- Correspondencia entre las fases LAZY y los artefactos del CC-La-Barranca
 
 \begin{table}[htbp]
 \centering
 \begin{tabular}{p{0.22\textwidth} p{0.24\textwidth} p{0.24\textwidth} p{0.25\textwidth}}
 \toprule
-\textbf{Fase LAZY} & \textbf{Descripción} & \textbf{Artefacto en el SIW-CC} & \textbf{Sección del Informe} \\
+\textbf{Fase LAZY} & \textbf{Descripción} & \textbf{Artefacto en el CC-La-Barranca} & \textbf{Sección del Informe} \\
 \midrule
 L — Listen & Escucha activa sin agenda & Guión de entrevista semi-estructurado, notas de campo & Marco Metodológico \\
-A — Analyze & Modelado de causas y efectos & Árbol de Problemas, Árbol de Objetivos, Cuadro 4 & Parte I \\
-Z — Zoom & Convergencia en el problema accionable & 15 Historias de Usuario, Cuadro 6 de alternativas & Marco Metodológico / Parte I \\
-Y — Yield & Producción del insumo para desarrollo & Esquema de BD Firestore, Diseño UX/UI, Casos de uso & Parte II / III \\
+A — Analyze & Modelado de causas y efectos & Árbol de Problemas, Árbol de Objetivos, tabla de priorización & Parte I \\
+Z — Zoom & Convergencia en el problema accionable & Requerimientos funcionales y no funcionales, tabla de alternativas de solución & Marco Metodológico / Parte I \\
+Y — Yield & Producción del insumo para desarrollo & Esquema de BD Firestore, diseño de requerimientos funcionales y no funcionales, Diseño UX/UI & Parte II / III \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -2090,7 +2349,7 @@ Y — Yield & Producción del insumo para desarrollo & Esquema de BD Firestore, 
 
 LOL es el framework de desarrollo que gobierna cómo se construye software en condiciones de asimetría de equipo. Sus tres fases ---Logic, Oversight, Layering--- no son etapas secuenciales en el sentido tradicional. Son dimensiones que coexisten en cada iteración, con distinto peso según el momento del ciclo.
 
-Las 18 jornadas de desarrollo documentadas en las Fases y Tiempos de Desarrollo del SIW-CC constituyen un caso de estudio que permite observar las tres fases de LOL operando simultáneamente.
+Las 18 jornadas de desarrollo documentadas en las Fases y Tiempos de Desarrollo del CC-La-Barranca constituyen un caso de estudio que permite observar las tres fases de LOL operando simultáneamente.
 
 
 
@@ -2110,15 +2369,15 @@ Tailwind CSS: diseño responsivo sin CSS personalizado, adaptable a teléfonos y
 
 Estas no son elecciones técnicas triviales. Son expresiones de la fase Logic: cada decisión tiene una justificación que responde a las restricciones reales del contexto (conectividad intermitente, usuarios con baja alfabetización digital, presupuesto cero). La fase Logic de LOL exige que el desarrollador pueda articular por qué cada componente del sistema existe, no solo que funcione.
 
-El Diagrama de Casos de Uso (Gráfico 19) es el artefacto central de la fase Logic: modela los actores (Vocera Principal, Líder de Calle, Firestore), sus responsabilidades y las relaciones entre módulos. Es el mapa que hace navegable el sistema antes de que exista una sola línea de código.
+El artefacto central de la fase Logic fue la definición del esquema de datos de Firestore y la especificación del sistema de roles. Este esquema —con su colección raíz \texttt{Consejo-Comunal-La-Barranca} y sus ocho subcolecciones funcionales— es el mapa que hace navegable el sistema antes de que exista una sola línea de código funcional. Cada colección refleja un módulo operativo del Consejo Comunal, derivado directamente del Documento de Transferencia de LAZY. En lugar de un diagrama de actores abstracto, Logic produjo una estructura de datos concreta y verificable en el repositorio.
 
 
 
 \subsection{Fase Oversight — La Seguridad como Evidencia de Responsabilidad}
 
-La fase Oversight en LOL corresponde a la revisión crítica del sistema: ¿qué puede salir mal? ¿quién tiene acceso a qué? ¿los datos sensibles están protegidos? Esta fase es especialmente relevante en sistemas comunitarios donde se almacena información personal de familias vulnerables.
+La fase Oversight en LOL corresponde a la revisión crítica del sistema (alineada con los principios del OWASP Top Ten; OWASP Foundation, 2024): ¿qué puede salir mal? ¿quién tiene acceso a qué? ¿los datos sensibles están protegidos? Esta fase es especialmente relevante en sistemas comunitarios donde se almacena información personal de familias vulnerables.
 
-El SIW-CC implementó Oversight en múltiples capas, todas documentadas en el código fuente del repositorio público CC-La-Barranca:
+El CC-La-Barranca implementó Oversight en múltiples capas, todas documentadas en el código fuente del repositorio público CC-La-Barranca:
 
 
 
@@ -2150,7 +2409,7 @@ Cabe señalar que ninguna de estas decisiones de seguridad fue discutida en las 
 
 Layering es la fase de LOL que describe cómo se construye funcionalidad sobre funcionalidad de forma deliberada: primero la base (autenticación, navegación, roles), luego el núcleo (gestión de familias y miembros), luego las capacidades derivadas (eventos de entrega, reportes, generación de constancias).
 
-El Layering en el SIW-CC es explícito en la documentación de las iteraciones:
+El Layering en el CC-La-Barranca es explícito en la documentación de las iteraciones:
 
 
 
@@ -2176,15 +2435,15 @@ La refactorización mencionada en la documentación del Día 8 ---\enquote{Famil
 
 
 
-Cuadro 14.2 --- Correspondencia entre las fases LOL y los artefactos del SIW-CC
+Cuadro 14.2 --- Correspondencia entre las fases LOL y los artefactos del CC-La-Barranca
 
 \begin{table}[htbp]
 \centering
 \begin{tabular}{p{0.22\textwidth} p{0.24\textwidth} p{0.24\textwidth} p{0.25\textwidth}}
 \toprule
-\textbf{Fase LOL} & \textbf{Principio Central} & \textbf{Artefacto en el SIW-CC} & \textbf{Días de Desarrollo} \\
+\textbf{Fase LOL} & \textbf{Principio Central} & \textbf{Artefacto en el CC-La-Barranca} & \textbf{Días de Desarrollo} \\
 \midrule
-Logic & Modelo mental explícito antes de codificar & Diagrama de Casos de Uso, decisiones de arquitectura documentadas, selección justificada del stack & 1–4 \\
+Logic & Modelo mental explícito antes de codificar & Esquema de BD Firestore, sistema de roles documentado, decisiones de arquitectura justificadas, selección del stack & 1–4 \\
 Oversight & Revisión crítica autónoma de calidad y seguridad & Firestore Security Rules, getUserRole() server-side, pruebas de integración y UAT con Vocera & Transversal \\
 Layering & Construcción incremental con dependencias respetadas & 3 iteraciones con capas explícitas: Auth → CRUD → Business Logic → Outputs & 5–18 \\
 \bottomrule
@@ -2229,19 +2488,19 @@ La conclusión no es que LOL reemplaza a XP. La conclusión es que LOL y LAZY co
 
 La existencia de un caso de estudio real que puede ser descrito con precisión por LOL y LAZY tiene implicaciones metodológicas importantes para la validación de ambos frameworks.
 
-En primer lugar, demuestra que LOL y LAZY no son construcciones teóricas diseñadas en el vacío. Son abstracciones que emergen de la práctica documentada: cada fase tiene un correlato en artefactos verificables (código, diagramas, actas de reunión, historias de usuario). Esto les otorga lo que en epistemología se denomina validez de constructo: el framework mide lo que dice medir.
+En primer lugar, sugiere que LOL y LAZY no son construcciones teóricas diseñadas en el vacío. Son abstracciones que emergen de la práctica documentada: cada fase tiene un correlato en artefactos verificables (código, diagramas, actas de reunión, tablas de requerimientos funcionales y no funcionales). Esta correspondencia es un indicio favorable, aunque un solo caso de estudio no es suficiente para establecer formalmente la validez de constructo del framework en el sentido metodológico riguroso del término; eso requeriría estudios adicionales con múltiples casos independientes.
 
-En segundo lugar, la correspondencia entre las fases de LAZY y las técnicas de investigación del Marco Metodológico (observación directa, entrevista no estructurada, análisis documental) sugiere que LAZY es compatible con, y en algunos aspectos superior a, los marcos metodológicos convencionales del PNFI cuando se aplica en proyectos socio-tecnológicos con alta incertidumbre de requerimientos.
+En segundo lugar, la correspondencia entre las fases de LAZY y las técnicas de investigación del Marco Metodológico (observación directa, entrevista no estructurada, análisis documental) sugiere que LAZY es compatible con los marcos metodológicos convencionales del PNFI, y podría ofrecer ventajas particulares en proyectos socio-tecnológicos con alta incertidumbre de requerimientos ---una hipótesis que este caso de estudio ilustra, pero que requeriría comparación directa con otros proyectos para confirmarse.
 
-En tercer lugar, la capa de Oversight documentada en el código fuente del SIW-CC ofrece evidencia de que LOL genera una cultura de responsabilidad individual sobre la calidad que XP solo puede garantizar en presencia de pares que se revisen mutuamente. Para el desarrollador autónomo ---que es, recordemos, el sujeto central del Manifiesto Solo-First--- Oversight no es una opción: es la única salvaguarda disponible.
+En tercer lugar, la capa de Oversight documentada en el código fuente del CC-La-Barranca ilustra cómo un desarrollador autónomo puede sostener responsabilidad individual sobre la calidad sin depender de la revisión de pares ---mecanismo en el que XP se apoya de forma central. Para el desarrollador autónomo ---que es, recordemos, el sujeto central del Manifiesto Solo-First--- Oversight no es una opción: es la única salvaguarda disponible.
 
-En suma: el SIW-CC no fue diseñado como un caso de estudio para LOL y LAZY. Fue un proyecto real que enfrentó restricciones reales y produjo soluciones reales. El hecho de que esas soluciones correspondan punto a punto con los principios de ambos frameworks no es una coincidencia fabricada retroactivamente. Es la evidencia de que los frameworks capturan algo verdadero sobre cómo ocurre el desarrollo de software cuando las condiciones son imperfectas y el desarrollador es, en la práctica, el único responsable del resultado.
+En suma: el CC-La-Barranca no fue diseñado como un caso de estudio para LOL y LAZY. Fue un proyecto real que enfrentó restricciones reales y produjo soluciones reales. El hecho de que esas soluciones correspondan punto a punto con los principios de ambos frameworks no es una coincidencia fabricada retroactivamente. Es la evidencia de que los frameworks capturan algo verdadero sobre cómo ocurre el desarrollo de software cuando las condiciones son imperfectas y el desarrollador es, en la práctica, el único responsable del resultado.
 
 
 
 Nota del Autor
 
-La reinterpretación presentada en este capítulo no modifica ni invalida los resultados del proyecto SIW-CC documentados en las Partes I--IV. El sistema fue desarrollado, desplegado y validado con éxito por la comunidad del CC La Barranca. Lo que este capítulo ofrece es una capa adicional de análisis: la demostración de que los mismos eventos pueden ser descritos con mayor precisión teórica bajo el lente de LOL y LAZY, lo que a su vez sirve como evidencia empírica para la validación de ambos frameworks.
+La reinterpretación presentada en este capítulo no modifica ni invalida los resultados del proyecto CC-La-Barranca documentados en las Partes I--IV. El sistema fue desarrollado, desplegado y validado con éxito por la comunidad del CC La Barranca. Lo que este capítulo ofrece es una capa adicional de análisis: la demostración de que los mismos eventos pueden ser descritos con mayor precisión teórica bajo el lente de LOL y LAZY, lo que a su vez sirve como evidencia empírica para la validación de ambos frameworks.
 
 
 
@@ -2278,11 +2537,10 @@ En la etapa final de escalado, el proyecto trasciende el código y se convierte 
 
 Supervisión Comunitaria Abierta: Los indicadores clave y las métricas de uso del sistema se hacen públicos y accesibles para la comunidad de usuarios. La contraloría social pasa a ser la última capa de supervisión de la aplicación.
 
-Arquitectura de Extensiones: El software se diseña de manera que permita añadir extensiones o complementos externos sin necesidad de modificar el código base. El sistema crece de forma orgánica y descentralizada, garantizando la sostenibilidad y continuidad de la herramienta a largo plazo, independientemente de la composición o permanencia del equipo de desarrollo original.
+Arquitectura de Extensiones: El software se diseña de manera que permita añadir extensiones o complementos externos sin necesidad de modificar el código base. El sistema crece de forma orgánica y descentralizada, lo cual favorece la sostenibilidad y continuidad de la herramienta a largo plazo, incluso ante cambios en la composición o permanencia del equipo de desarrollo original.
 
 
 \chapter{Resultados}
-\section{Introducción}
 
 La aplicación de los frameworks LAZY y LOL en el desarrollo del Sistema de Información Web para la comunidad La Barranca permitió evaluar su utilidad dentro de un contexto socio-tecnológico real.
 
@@ -2516,25 +2774,35 @@ El software no existe en el vacío; su propósito último es resolver problemas 
 
 Apaga la pantalla por un momento. Mira tu propio tablero de ajedrez, analiza tus proyectos y tus metas, y traza tu próxima jugada con audacia. No temas pilotar tu propia nave en solitario. Las estrellas están allí afuera, esperando ser alcanzadas.
 
+\chapter*{Glosario}
+\addcontentsline{toc}{chapter}{Glosario}
+
+Este glosario contiene las definiciones y descripciones detalladas de los conceptos fundamentales que sustentan la arquitectura metodológica propuesta en este libro:
+
+\begin{description}[leftmargin=2em, style=nextline]
+\item[\textcolor{primary}{Participación Adaptativa}] Principio que reconoce y formaliza diferentes niveles válidos de participación y compromiso dentro de un equipo de desarrollo, adaptándose a las capacidades y disponibilidad reales de cada integrante en lugar de asumir contribuciones homogéneas.
+
+\item[\textcolor{primary}{Suficiencia Operativa}] Principio según el cual cualquier actividad del proyecto puede ser ejecutada y validada con el número mínimo de participantes requeridos para alcanzar el objetivo planteado, evitando cuellos de botella organizacionales.
+
+\item[\textcolor{primary}{Documento de Transferencia}] Artefacto formal generado al finalizar la fase Yield del framework LAZY, que actúa como puente de información estructurada y sirve de entrada directa para la fase de desarrollo e implementación en el framework LOL. En el caso de estudio de este libro se presenta bajo el alias \textit{Bitácora de Cruce}.
+
+\item[\textcolor{primary}{Participación Directa}] Contribución activa en tareas de implementación técnica, codificación, diseño de base de datos o cualquier actividad de construcción directa del software.
+
+\item[\textcolor{primary}{Participación de Apoyo}] Contribución complementaria dedicada a actividades secundarias, tales como documentación, preparación de entornos, pruebas manuales preliminares o recopilación de recursos adicionales.
+
+\item[\textcolor{primary}{Participación Consultiva}] Aporte basado en el conocimiento temático, la revisión de requisitos, la retroalimentación y la asesoría técnica o metodológica periódica, sin intervenir directamente en el código base.
+
+\item[\textcolor{primary}{Participación Observacional}] Presencia orientada al aprendizaje práctico, la validación final del software y la comprensión general del proceso de desarrollo, pensada para miembros en fases de formación o representantes de la comunidad.
+\end{description}
 
 \chapter{Referencias}
 \begin{referenceslist}
 
 \item Beck, K. (2000). \textit{Extreme Programming Explained: Embrace Change} (2nd ed.). Addison-Wesley.
 
-\item Beck, K., Andres, C. (2004). \textit{Extreme Programming Explained: Embrace Change} (2nd ed.). Addison-Wesley.
-
 \item Schwaber, K., Sutherland, J. (2020). \textit{The Scrum Guide}. Scrum.org.
 
-\item Takeuchi, H., Nonaka, I. (1986). \textit{The New New Product Development Game}. Harvard Business Review, 64(1), 137--146.
-
 \item Anderson, D. J. (2010). \textit{Kanban: Successful Evolutionary Change for Your Technology Business}. Blue Hole Press.
-
-\item Pressman, R. S., Maxim, B. R. (2020). \textit{Software Engineering: A Practitioner's Approach} (9th ed.). McGraw-Hill.
-
-\item Sommerville, I. (2015). \textit{Software Engineering} (10th ed.). Pearson.
-
-\item Gamma, E., Helm, R., Johnson, R., Vlissides, J. (1994). \textit{Design Patterns: Elements of Reusable Object-Oriented Software}. Addison-Wesley.
 
 \item Hevner, A. R., March, S. T., Park, J., Ram, S. (2004). Design Science in Information Systems Research. \textit{MIS Quarterly}, 28(1), 75--105.
 
@@ -2542,25 +2810,15 @@ Apaga la pantalla por un momento. Mira tu propio tablero de ajedrez, analiza tus
 
 \item Wieringa, R. J. (2014). \textit{Design Science Methodology for Information Systems and Software Engineering}. Springer.
 
-\item Shneiderman, B., Plaisant, C., Cohen, M., Jacobs, S., Elmqvist, N., Diakopoulos, N. (2016). \textit{Designing the User Interface} (6th ed.). Pearson.
-
-\item Nielsen, J. (1994). \textit{Usability Engineering}. Morgan Kaufmann.
-
 \item Microsoft. (2024). \textit{The STRIDE Threat Modeling Technique}.
 
 \item OWASP Foundation. (2024). \textit{OWASP Top Ten Web Application Security Risks}.
 
-\item Fielding, R. T. (2000). \textit{Architectural Styles and the Design of Network-based Software Architectures}. University of California, Irvine.
-
-\item Martin, R. C. (2017). \textit{Clean Architecture: A Craftsman's Guide to Software Structure and Design}. Prentice Hall.
-
 \item Fowler, M. (2018). \textit{Refactoring: Improving the Design of Existing Code} (2nd ed.). Addison-Wesley.
-
-\item Beck, K. (1999). \textit{Planning Extreme Programming}. Addison-Wesley.
 
 \item Proyecto SIW La Barranca. Documentación interna del proyecto socio-tecnológico desarrollado por el autor.
 
-
+\end{referenceslist}
 
 \clearpage
 \thispagestyle{empty}
@@ -2568,8 +2826,5 @@ Apaga la pantalla por un momento. Mira tu propio tablero de ajedrez, analiza tus
 \AddToShipoutPictureBG*{\AtPageLowerLeft{\includegraphics[width=\paperwidth,height=\paperheight]{imagenes/aboutTheAuthor.png}}}
 \phantom{.}
 \newpage
-
-\end{referenceslist}
-
 
 \end{document}
