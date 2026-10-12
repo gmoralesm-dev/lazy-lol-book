@@ -856,7 +856,7 @@ Solo-First no es una filosofía de amargura ni un manual para trabajo en equipo 
 
 
 
-\section{I. Las 9 Declaraciones del Desarrollador Solo-First}
+\section{I. Las 10 Declaraciones del Desarrollador Solo-First}
 
 Estas declaraciones no son reglas técnicas. Son compromisos filosóficos que guían las decisiones de diseño, la gestión del tiempo y la relación con el equipo dentro del LOL Framework.
 
@@ -990,8 +990,8 @@ Estas son las prácticas que el LOL Framework reemplaza de forma explícita. No 
 \begin{figure}[htbp]
 \centering
 \includegraphics[width=0.95\linewidth]{imagenes/comparicionTradicional.png}
-\caption{Comparacion:metodología tradicional vs Solo-First.}
-\label{fig:lazy_framework}
+\caption{Comparación: metodología tradicional vs Solo-First.}
+\label{fig:comparacion_tradicional_solofirst}
 \end{figure}
 
 
@@ -1168,6 +1168,15 @@ Mientras la observación muestra lo que las personas hacen, la escucha ayuda a c
 
 Por esta razón, el framework LAZY inicia con la fase Listen. Antes de diseñar una solución tecnológica, es necesario comprender la realidad que la origina.
 
+\subsection{Criterio de Salida (Definition of Done) y Presupuesto Temporal}
+
+Para evitar el antipatrón del \enquote{descubrimiento infinito} (\textit{endless discovery}) ---donde el investigador posterga la construcción buscando certezas absolutas de campo--- la fase Listen opera con un criterio de parada estricto basado en saturación empírica:
+
+\begin{itemize}
+\item \textbf{Criterio de Salida (Definition of Done):} La fase concluye cuando tres o cuatro necesidades críticas y patrones de fricción se reiteran de manera recurrente entre informantes clave, sin que surjan nuevas categorías estructurales de información.
+\item \textbf{Límite Temporal (\textit{Time-box}):} Presupuesto máximo de una a dos semanas (u 8 a 10 sesiones estructuradas de escucha activa). Alcanzado este umbral o la saturación, se congela la recolección y se avanza obligatoriamente a la fase Analyze.
+\end{itemize}
+
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
 \section{Fase A: Analyze}
@@ -1193,6 +1202,15 @@ Las comunidades rara vez expresan sus necesidades en términos de bases de datos
 Los usuarios describen problemas, experiencias y necesidades. Corresponde al ingeniero traducir esa información en componentes técnicos que puedan ser implementados mediante software.
 
 En este sentido, la fase Analyze actúa como un proceso de traducción entre el lenguaje humano y el lenguaje técnico.
+
+\subsection{Criterio de Salida (Definition of Done) y Presupuesto Temporal}
+
+La fase Analyze no debe degenerar en análisis teórico perpetuo. Su finalización se define formalmente:
+
+\begin{itemize}
+\item \textbf{Criterio de Salida (Definition of Done):} Descomposición causal completada en el Árbol de Problemas y Árbol de Objetivos hasta alcanzar hojas terminales operativamente abordables por software, combinada con una matriz de evaluación cuantitativa que priorice el problema crítico.
+\item \textbf{Límite Temporal (\textit{Time-box}):} Presupuesto acotado de tres a cinco días hábiles de trabajo analítico.
+\end{itemize}
 
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
@@ -1220,6 +1238,15 @@ Los requisitos que dependen de factores externos, como reuniones, aprobaciones o
 
 Este principio busca reducir la incertidumbre y mantener la continuidad del desarrollo.
 
+\subsection{Criterio de Salida (Definition of Done) y Presupuesto Temporal}
+
+La fase Zoom restringe la ambición del alcance para viabilizar la entrega:
+
+\begin{itemize}
+\item \textbf{Criterio de Salida (Definition of Done):} Delimitación estricta del Producto Mínimo Viable (MVP) para el problema seleccionado, definiendo explícitamente tanto las funcionalidades esenciales como los límites de exclusión (\textit{out of scope}). La fase concluye al identificar el primer problema con un MVP técnicamente factible.
+\item \textbf{Límite Temporal (\textit{Time-box}):} Presupuesto de dos a tres días hábiles para selección de alternativa y definición de alcance.
+\end{itemize}
+
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
 \section{Fase Y: Yield}
@@ -1235,6 +1262,16 @@ La pregunta central de esta fase es:
 \end{keyquestion}
 
 El resultado esperado es un conjunto de requerimientos estructurados capaces de alimentar directamente el proceso de desarrollo dentro del marco LOL.
+
+\subsection{Criterio de Salida (Definition of Done) y Trazabilidad Mecanizada}
+
+La fase Yield sella formalmente el traspaso hacia la implementación técnica:
+
+\begin{itemize}
+\item \textbf{Criterio de Salida (Definition of Done):} Consolidación del Documento de Transferencia formal, donde cada requerimiento funcional está pareado biunívocamente con su requerimiento no funcional (RF $\leftrightarrow$ RNF) y asignado a un identificador inmutable (\texttt{YLD-00}, \texttt{YLD-01}, etc.), junto al diseño inicial del esquema NoSQL.
+\item \textbf{Mecanización de la Trazabilidad:} En LAZY-LOL, la trazabilidad no es una aserción discursiva ni una promesa documental estática: es un contrato ejecutable. Cada identificador \texttt{YLD-xx} debe figurar en las ramas de Git, los mensajes de commit (\texttt{git commit -m "feat(YLD-01): ..."}) y los descriptores de pruebas automatizadas (\texttt{describe('[YLD-01] ...')}). El pipeline de desarrollo incluye una verificación mecanizada obligatoria (\texttt{npm run check:traceability}) que valida que ningún requerimiento quede huérfano de código o suite de pruebas.
+\item \textbf{Límite Temporal (\textit{Time-box}):} Presupuesto de dos a tres días hábiles para formalizar las especificaciones y contratos de transferencia.
+\end{itemize}
 
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
@@ -1359,6 +1396,33 @@ La pregunta central es:
 \end{keyquestion}
 
 A diferencia de modelos donde las pruebas se concentran al final del proyecto, LOL incorpora supervisión continua durante todo el proceso de desarrollo.
+
+\subsection{Límites del Oversight Individual: Herramientas vs. Aseguramiento}
+
+En un esquema Solo-First o con marcada asimetría de equipo, el desarrollador principal suele asumir simultáneamente los roles de Arquitecto, Constructor y Auditor. Esta concentración de roles plantea un desafío metodológico ineludible: la misma persona que escribe el código evalúa su propia corrección.
+
+Es indispensable reconocer con honestidad los límites de este esquema:
+\begin{authorobservation}
+El Oversight individual no es aseguramiento independiente; equivale a tooling automatizado riguroso más una pasada adversarial deliberadamente programada por el desarrollador.
+\end{authorobservation}
+
+Las herramientas de integración continua (linters, compiladores y analizadores estáticos) solo detectan fallos sintácticos o aquello que una prueba ya asevera explícitamente; son incapaces de advertir si una regla de negocio está ausente, si un modelo de permisos es conceptualmente defectuoso o si una suposición arquitectónica es ingenua.
+
+Por este motivo, LOL establece que ningún proyecto que opere bajo el pilar Oversight puede considerarse metodológicamente blindado sin incorporar al menos una instancia de \textbf{verificación externa de bajo costo}:
+\begin{enumerate}
+\item \textbf{Revisión adversarial por pares (Peer Review):} Una auditoría técnica externa e independiente orientada a encontrar fallas de autorización y diseño (como la auditoría de seguridad externa que reveló la vulnerabilidad F1 en el caso de estudio).
+\item \textbf{Verificación con un representante comunitario (UAT de Privacidad):} Pruebas de aceptación directa con los usuarios reales para contrastar supuestos sobre visibilidad de datos personales.
+\item \textbf{Auditoría mediante agente o escáner automatizado independiente:} Ejecución de herramientas de análisis de vulnerabilidades ajenas a la pipeline estándar del proyecto.
+\end{enumerate}
+
+\subsection{El Principio de Oversight Ejecutable}
+
+Otro principio rector fundamental de LOL es que la supervisión no puede limitarse a prosa documental o justificaciones en un informe:
+\begin{authorobservation}
+Un control de seguridad o regla de acceso solo se considera \enquote{completado} cuando está respaldado por una prueba automatizada ejecutable que falle en la versión vulnerable y pase en la versión corregida.
+\end{authorobservation}
+
+Describir un control en una tabla de amenazas no mitiga una vulnerabilidad; solo una suite de pruebas automatizadas (como pruebas de reglas de Firebase ejecutadas sobre un emulador local) proporciona la certeza técnica de que la regla de control de acceso es inviolable.
 
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
@@ -1603,6 +1667,18 @@ La estructura propuesta no busca imponer una composición específica, sino prop
 \section{Principio de Suficiencia Operativa}
 
 No todas las tareas requieren la participación de todos los integrantes.
+
+\par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
+
+\section{Diferenciación de Ejes: Contribución al Equipo vs. Permisos del Sistema}
+
+Un error metodológico frecuente consiste en confundir dos dimensiones que son conceptualmente ortogonales:
+\begin{enumerate}
+\item \textbf{Eje de Contribución al Equipo (Ingeniería e Investigación):} Define cómo los integrantes humanos del equipo de desarrollo distribuyen su esfuerzo y responsabilidades técnicas (Niveles 1 a 4: Directa, Apoyo, Consultiva, Observacional).
+\item \textbf{Eje de Autorización y Permisos del Sistema (RBAC de Software):} Define qué operaciones de lectura y escritura puede ejecutar una cuenta de usuario en la base de datos de la aplicación (Público, Invitado, Usuario autenticado, Líder de calle, Vocera principal, Administrador).
+\end{enumerate}
+
+El marco LOL insiste en no homologar ni reutilizar la escala numérica de niveles entre ambos ejes. Un miembro de la comunidad que ostenta el rol de \textit{vocera principal} y posee permisos de escritura administrativa en el sistema no forma parte del \enquote{Nivel 1 — Directo} del equipo de desarrollo de software; es un actor social del dominio con credenciales elevadas en la plataforma. De igual manera, un vecino que lee comunicados públicos anónimamente no es un participante de \enquote{Nivel 4 — Observacional} del equipo de desarrollo. Separar explícitamente el modelo de contribución técnica del modelo de autorización de datos previene ambigüedades sobre quién construye el software y quién lo utiliza.
 
 LOL establece que una actividad debe involucrar únicamente la cantidad de participantes necesaria para alcanzar sus objetivos de manera efectiva.
 
@@ -2104,9 +2180,39 @@ de la plataforma utilizada y puede consultarse en el repositorio del proyecto.
 
 El Pilar Oversight del sistema se implementó principalmente a través de las Firebase Security Rules, que actúan como la capa de control de acceso declarativa en el servidor. Estas reglas constituyen el artefacto de Oversight más crítico del sistema: son verificadas por Firebase antes de permitir cualquier operación de lectura o escritura, independientemente de la lógica implementada en el cliente React.
 
-El análisis de amenazas STRIDE (Microsoft, 2024) aplicado durante la Fase Logic produjo las siguientes mitigaciones, todas implementadas y verificables en el archivo firestore.rules del repositorio:
+Sin embargo, el proyecto aportó una lección metodológica de primer orden: en su versión inicial, el análisis STRIDE asumía que restringir la escritura a \texttt{request.auth.uid == userId} prevenía la elevación de privilegios. En la práctica, dado que la función \texttt{getUserRole()} leía el atributo \texttt{role} de ese mismo documento, cualquier sesión autenticada o anónima podía escribir su propio \texttt{role = 'administrador'} y auto-promoverse con acceso total (Vulnerabilidad F1). Asimismo, la colección \texttt{families} permitía inicialmente la lectura a cualquier usuario autenticado, exponiendo el padrón comunitario, y existían credenciales de arranque en el código antes de su saneamiento en el commit \texttt{d2471cc6}.
 
+Este incidente evidenció que \textbf{el Oversight no puede ser narrativo ni discursivo}. La mitigación de amenazas solo adquiere validez metodológica cuando se vuelve \textbf{ejecutable}:
 
+\begin{tcolorbox}[
+    colback=primary!5,
+    colframe=primary!30,
+    arc=5pt,
+    title=Prueba ejecutable de mitigación de amenaza STRIDE-E (Elevation of Privilege)
+]
+\begin{verbatim}
+test('[F1/STRIDE-E] Usuario común NO puede promoverse a administrador', 
+  async () => {
+    const unprivilegedUid = 'user-normal-123';
+    const userContext = testEnv.authenticatedContext(unprivilegedUid);
+    const db = userContext.firestore();
+    const userDocRef = doc(db, 'Consejo-Comunal-La-Barranca', 
+                           'data', 'users', unprivilegedUid);
+
+    // Intento de ataque F1: auto-asignación de rol administrativo
+    await assertFails(
+      setDoc(userDocRef, {
+        displayName: 'Atacante',
+        role: 'administrador'
+      })
+    );
+});
+\end{verbatim}
+\smallskip
+\textit{Suite automatizada ejecutada sobre Firebase Emulator mediante @firebase/rules-unit-testing (archivo test/firestore.rules.test.js).}
+\end{tcolorbox}
+
+Tras incorporar esta verificación ejecutable y aplicar los parches correspondientes (commit \texttt{2b8678f}), el análisis STRIDE se consolidó en las siguientes mitigaciones, verificables línea por línea en el archivo \texttt{firestore.rules} (95 líneas) del repositorio:
 
 \begin{table}[htbp]
 \centering
@@ -2114,27 +2220,21 @@ El análisis de amenazas STRIDE (Microsoft, 2024) aplicado durante la Fase Logic
 \toprule
 \textbf{Amenaza STRIDE} & \textbf{Vector Identificado} & \textbf{Mitigación Implementada} & \textbf{Artefacto} \\
 \midrule
-S — Spoofing & Usuario no autenticado accede a datos de familias & Firebase Auth obligatorio en todas las rutas protegidas; regla: request.auth != null & firestore.rules L.32 \\
-T — Tampering & Usuario modifica su propio rol a 'administrador' & getUserRole() consulta el rol desde la BD del servidor, nunca desde el cliente o token & firestore.rules L.7–9 \\
-R — Repudiation & Administrador niega haber emitido un certificado & Colección certificates con timestamps de servidor; logs de Firestore habilitados & Colección /certificates \\
-I — Info. Disclosure & Usuario estándar lee datos de otras familias por ID directo (IDOR) & Queries de families siempre scoped por autenticación; roles verificados en servidor & firestore.rules L.31–44 \\
-D — Denial of Service & Registros masivos de comunicados por usuario anónimo & allow write: if request.auth != null en comunicados; comentarios requieren auth & firestore.rules L.24–30 \\
-E — Elevation of Privilege & Usuario intenta autoasignarse rol de lider\_de\_calle & isManager() verifica roles desde BD; escritura de users solo sobre propio UID & firestore.rules L.10–17, L.47 \\
+S — Spoofing & Usuario no autenticado accede a datos privados & Autenticación Firebase obligatoria; lectura restringida al dueño o manager & firestore.rules L.55, L.69 \\
+T — Tampering & Usuario modifica su propio rol a 'administrador' & Modificación de campo role bloqueada; inmutable para usuarios comunes & firestore.rules L.60–63 \\
+R — Repudiation & Administrador niega haber emitido constancia o entrega & Timestamps del servidor y recibos anidados no editables por cliente & firestore.rules L.47–50, L.84–87 \\
+I — Info. Disclosure & Sesión anónima lee datos de familias (censo comunitario) & Colecciones families y members restringidas estrictamente a isManager() & firestore.rules L.39–50 \\
+D — Denial of Service & Registros masivos de comunicados por usuarios no autorizados & Creación de comunicados restringida a managers; comentarios requieren auth y authorId & firestore.rules L.25–35 \\
+E — Elevation of Privilege & Usuario intenta autoasignarse rol de lider\_de\_calle o admin & Validación estricta en servidor contra auto-promoción; comprobado con suite de tests & firestore.rules L.52–65, L.68–77 \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-
-
-Adicionalmente, el proyecto configura una suite de pruebas de interfaz mediante @testing-library/react, que permite la validación automatizada del comportamiento de los componentes de UI. Esta suite cumple la función de Oversight continuo descrita en el Ciclo LOL: cada cambio en la interfaz puede ser verificado contra el comportamiento esperado antes de ser desplegado.
-
-
+Adicionalmente, el proyecto configura una suite de pruebas de interfaz mediante \texttt{@testing-library/react} (40 pruebas unitarias) combinada con la suite de seguridad de reglas en el emulador local. Esta suite doble cumple la función de Oversight continuo descrita en el Ciclo LOL: cada cambio en la interfaz o en las reglas de persistencia es verificado automáticamente antes de ser desplegado.
 
 \subsection{Pilar L: Layering — Construcción por Capas}
 
 El Pilar Layering organizó el sistema en capas con responsabilidades claramente definidas, siguiendo el principio de separación de responsabilidades establecido en la Fase Logic:
-
-
 
 \begin{table}[htbp]
 \centering
@@ -2152,45 +2252,35 @@ Infraestructura & Despliegue, hosting, variables de entorno & Firebase Hosting +
 \end{tabular}
 \end{table}
 
+Una decisión de Layering destacable es el manejo de credenciales. El repositorio incluye un archivo .env.example que documenta las variables de entorno requeridas sin exponer valores reales, y el .gitignore excluye explícitamente los archivos .env del control de versiones. Esta práctica, recomendada en el Capítulo 5 de este trabajo como responsabilidad del Auditor dentro del pilar Oversight, previene la exposición de credenciales de Firebase en repositorios públicos.
 
+\section{Roles y Permisos del Sistema}
 
-Una decisión de Layering destacable es el manejo de credenciales. El repositorio incluye un archivo .env.example que documenta las variables de entorno requeridas sin exponer valores reales, y el .gitignore excluye explícitamente los archivos .env del control de versiones. Esta práctica, recomendada en el Capítulo 5 de este trabajo como responsabilidad del Sentry, previene la exposición de credenciales de Firebase en repositorios públicos.
+\subsection{Modelo de Autorización del Sistema (Perspectiva Técnica RBAC)}
 
-
-
-\section{Roles y Niveles de Participación}
-
-\subsection{Roles del Sistema (Perspectiva Técnica)}
-
-El sistema implementa cinco roles funcionales derivados directamente de la estructura organizacional del Consejo Comunal, mapeados a los niveles de participación del LOL Framework:
-
-
+El sistema implementa cinco perfiles de autorización derivados directamente de la estructura operativa del Consejo Comunal:
 
 \begin{table}[htbp]
 \centering
 \begin{tabular}{p{0.22\textwidth} p{0.24\textwidth} p{0.24\textwidth} p{0.25\textwidth}}
 \toprule
-\textbf{Rol del Sistema} & \textbf{Permiso de Lectura} & \textbf{Permiso de Escritura} & \textbf{Nivel LOL} \\
+\textbf{Rol del Sistema} & \textbf{Permiso de Lectura} & \textbf{Permiso de Escritura} & \textbf{Alcance de Autorización} \\
 \midrule
-Público (sin auth) & comunicados solamente & Ninguno & Nivel 4 — Observacional \\
-Invitado (invitados) & Solo su sesión propia & Solo su sesión propia & Nivel 4 — Observacional \\
-Usuario autenticado & comunicados, families, deliveries, certificates, reports & comunicados y comentarios propios & Nivel 3 — Consultivo \\
-lider\_de\_calle & Todo lo anterior & families, members, receipts, deliveries, certificates, reports & Nivel 2 — Apoyo \\
-vocera\_principal & Todo lo anterior & Todo lo anterior & Nivel 1 — Directo \\
-administrador / admin & Todo lo anterior & Todo lo anterior + gestión de usuarios & Nivel 1 — Directo \\
+Público (sin auth) & comunicados solamente & Ninguno & Información Pública \\
+Invitado (invitados) & Solo su sesión propia & Solo su sesión propia & Sesión Temporal \\
+Usuario autenticado & comunicados & comentarios propios & Participación Comunitaria \\
+lider\_de\_calle & Todo lo anterior + families, members, deliveries, reports & Creación y actualización de datos operativos & Operador Comunitario \\
+vocera\_principal & Todo lo anterior & Todo lo anterior & Coordinación Operativa \\
+administrador / admin & Todo lo anterior & Todo lo anterior + asignación de roles & Control Total del Sistema \\
 \bottomrule
 \end{tabular}
 \end{table}
 
-
-
-Esta tabla demuestra una correspondencia directa entre el modelo de participación adaptativa de LOL y la estructura de permisos del sistema real: los roles con mayor responsabilidad en la comunidad tienen mayor capacidad de escritura en el sistema, y los roles observacionales tienen acceso de lectura o sesiones temporales.
+Es fundamental destacar que esta tabla describe el \textbf{modelo de autorización y permisos del software} (RBAC), el cual es conceptualmente ortogonal al \textbf{modelo de contribución del equipo de desarrollo} (Niveles 1 a 4). Un vocero de la comunidad con privilegios de escritura en la base de datos no es un desarrollador de software; de igual manera, un usuario comunitario no es un auditor técnico. Separar ambos modelos previene solapamientos terminológicos.
 
 \subsection{Roles del Equipo de Desarrollo (Perspectiva Metodológica)}
 
 La distribución de participación observada en el equipo de desarrollo durante el proyecto reflejó con precisión el escenario descrito en el Principio Solo-First del LOL Framework:
-
-
 
 \begin{table}[htbp]
 \centering
@@ -2205,12 +2295,7 @@ Colaborador 3 & Observador & Nivel 4 — Observacional & Documentación del proc
 \end{tabular}
 \end{table}
 
-
-
 Esta distribución, aunque asimétricamente inclinada hacia el desarrollador principal, fue gestionada mediante los mecanismos del LOL Framework sin que la falta de participación uniforme bloqueara el avance del proyecto. Las decisiones técnicas fueron tomadas unilateralmente bajo el principio de Dictador por Defecto, mientras los colaboradores aportaron desde sus niveles de participación reales.
-
-
-
 
 \begin{table}[htbp]
 \centering
@@ -2219,12 +2304,13 @@ Esta distribución, aunque asimétricamente inclinada hacia el desarrollador pri
 \textbf{Métrica} & \textbf{Valor} & \textbf{Relevancia en LOL} \\
 \midrule
 Módulos funcionales implementados & 8 colecciones Firestore + UI correspondiente & Pilar Layering completado en Loop 1 \\
-Reglas de seguridad (firestore.rules) & 79 líneas, 6 colecciones principales protegidas & Pilar Oversight — cobertura completa de acceso \\
-Roles del sistema implementados & 6 roles (público, invitado, usuario, 3 managers) & Logic — sistema de roles verificado en servidor \\
-Amenazas STRIDE mitigadas en diseño & 6/6 (S, T, R, I, D, E) & Logic — análisis de amenazas preventivo completo \\
-Archivos de test configurados & Suite @testing-library configurada & Oversight — base de validación automatizada \\
-Credenciales expuestas en repositorio & 0 (solo .env.example con placeholders) & Layering — seguridad de configuración correcta \\
-Tecnologías de terceros integradas & 7 (React, Firebase x4, jsPDF, html2canvas) & Complejidad Diferida: mínimas y bien justificadas \\
+Reglas de seguridad (firestore.rules) & 95 líneas, F1–F5 mitigados y testeados & Pilar Oversight — reglas declarativas auditadas \\
+Roles del sistema implementados & 6 roles (público, invitado, usuario, 3 managers) & Logic — sistema RBAC verificado en servidor \\
+Amenazas STRIDE mitigadas en diseño & 6/6 (S, T, R, I, D, E) & Oversight — mitigadas con pruebas ejecutables \\
+Archivos de test configurados & 9 suites (40 UI tests + 6 tests de reglas) & Oversight — cobertura automatizada en CI \\
+Credenciales expuestas en repositorio & 0 (saneado en commit d2471cc6) & Layering — gestión estricta de secretos \\
+Trazabilidad de requerimientos & 100\% (YLD-00 a YLD-06 verificados) & Yield $\rightarrow$ LOL — trazabilidad mecanizada \\
+Tecnologías de terceros integradas & 7 (React, Firebase x4, jsPDF, html2canvas) & Complejidad Diferida: mínimas y justificadas \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -2492,15 +2578,55 @@ En primer lugar, sugiere que LOL y LAZY no son construcciones teóricas diseñad
 
 En segundo lugar, la correspondencia entre las fases de LAZY y las técnicas de investigación del Marco Metodológico (observación directa, entrevista no estructurada, análisis documental) sugiere que LAZY es compatible con los marcos metodológicos convencionales del PNFI, y podría ofrecer ventajas particulares en proyectos socio-tecnológicos con alta incertidumbre de requerimientos ---una hipótesis que este caso de estudio ilustra, pero que requeriría comparación directa con otros proyectos para confirmarse.
 
-En tercer lugar, la capa de Oversight documentada en el código fuente del CC-La-Barranca ilustra cómo un desarrollador autónomo puede sostener responsabilidad individual sobre la calidad sin depender de la revisión de pares ---mecanismo en el que XP se apoya de forma central. Para el desarrollador autónomo ---que es, recordemos, el sujeto central del Manifiesto Solo-First--- Oversight no es una opción: es la única salvaguarda disponible.
+En tercer lugar, la capa de Oversight documentada en el código fuente del CC-La-Barranca ilustra cómo un desarrollador autónomo puede sostener responsabilidad individual sobre la calidad. Sin embargo, como se analizó anteriormente, dicha responsabilidad individual no constituye un aseguramiento independiente por sí sola: exige tooling ejecutable estricto y al menos una verificación externa de bajo costo.
 
-En suma: el CC-La-Barranca no fue diseñado como un caso de estudio para LOL y LAZY. Fue un proyecto real que enfrentó restricciones reales y produjo soluciones reales. El hecho de que esas soluciones correspondan punto a punto con los principios de ambos frameworks no es una coincidencia fabricada retroactivamente. Es la evidencia de que los frameworks capturan algo verdadero sobre cómo ocurre el desarrollo de software cuando las condiciones son imperfectas y el desarrollador es, en la práctica, el único responsable del resultado.
+\subsection{El Riesgo de Circularidad y Criterios de Falsabilidad}
 
+Debe reconocerse con total transparencia científica un riesgo epistemológico crítico: reinterpretar un proyecto concluido a la luz de un nuevo marco metodológico corre el peligro de incurrir en una racionalización post-hoc (\textit{HARKing: Hypothesizing After Results are Known}). Si un modelo de cuatro fases investigativas y tres pilares de desarrollo se formula de manera tan flexible que describe cualquier proyecto terminado, entonces no constituye aún un marco científico falsable, sino un lente interpretativo.
 
+Para que LAZY-LOL sea metodológicamente defendible, debe responder a la pregunta popperiana fundamental: \textbf{¿bajo qué condiciones observables se consideraría falseado o fallido el framework?}
 
-Nota del Autor
+LAZY-LOL se considerará empíricamente refutado si en evaluaciones comparativas se observa cualquiera de las siguientes condiciones:
+\begin{enumerate}
+\item \textbf{Mayor volatilidad y retrabajo de requerimientos:} Si los proyectos que aplican el Documento de Transferencia de LAZY hacia LOL muestran una tasa de descarte o reescritura de requerimientos (\textit{requirement churn}) superior a la de proyectos guiados por historias de usuario convencionales de XP.
+\item \textbf{Fuga de defectos de seguridad (Defect Leakage):} Si el pilar Oversight, incluso respaldado por suites ejecutables, presenta una tasa de vulnerabilidades de autorización de severidad alta o crítica en producción igual o superior a proyectos sin Oversight explícito.
+\item \textbf{Sobrecarga operativa y abandono:} Si en condiciones de asimetría de equipo severa (un único programador activo), aplicar las restricciones y artefactos de LAZY-LOL incrementa el tiempo de entrega del primer incremento funcional verificable o incrementa la tasa de abandono frente a desarrolladores que operan de forma no estructurada.
+\end{enumerate}
 
-La reinterpretación presentada en este capítulo no modifica ni invalida los resultados del proyecto CC-La-Barranca documentados en las Partes I--IV. El sistema fue desarrollado, desplegado y validado con éxito por la comunidad del CC La Barranca. Lo que este capítulo ofrece es una capa adicional de análisis: la demostración de que los mismos eventos pueden ser descritos con mayor precisión teórica bajo el lente de LOL y LAZY, lo que a su vez sirve como evidencia empírica para la validación de ambos frameworks.
+\subsection{Condiciones Bajo las Cuales LAZY-LOL es la Herramienta Equivocada (Scope Negativo)}
+
+Un marco riguroso debe definir explícitamente sus condiciones de inaplicabilidad. LAZY-LOL es la herramienta incorrecta en los siguientes escenarios:
+\begin{itemize}
+\item \textbf{Equipos simétricos de tamaño mediano o grande:} En equipos de 5 o más ingenieros con plena disponibilidad y canales de comunicación fluidos, aplicar los principios Solo-First de LOL (como el Dictador por Defecto) produce aislamiento, desmotivación y cuellos de botella. Marcos ágiles consolidados como Scrum o XP con pair programming y revisiones cruzadas son indiscutiblemente superiores.
+\item \textbf{Proyectos con especificación contractual cerrada (Waterfall / Licitaciones):} En desarrollos donde el alcance, las pantallas y las entidades de datos están fijadas contractualmente desde el día inicial, el ciclo exploratorio y empático de LAZY añade sobrecostos y fricción innecesaria.
+\item \textbf{Sistemas de misión crítica o altamente regulados (Aeroespacial, Salud, Banca Central):} Los principios de Complejidad Diferida y supervisión centrada en tooling individual son inadmisibles en entornos donde una falla cuesta vidas humanas o colapsos financieros; estos sistemas exigen comités formales independientes, verificación formal matemática y trazabilidad regulatoria estricta.
+\end{itemize}
+
+\subsection{Catálogo de Modos de Falla y Antipatrones de LAZY-LOL}
+
+La experiencia de campo permitió compilar un catálogo explícito de antipatrones que amenazan la ejecución del marco:
+\begin{enumerate}
+\item \textbf{Antipatrón 1: Parálisis por Descubrimiento (\textit{Endless Discovery}):} Ocurre cuando el investigador no respeta el time-box ni el criterio de saturación de la fase Listen y posterga indefinidamente la construcción en busca de certezas absolutas, trasladando el riesgo de sobre-diseño al ámbito de la investigación.
+\item \textbf{Antipatrón 2: El Espejismo de la Asimetría (\textit{Asymmetry Denial}):} Ocurre cuando el desarrollador principal se niega a reconocer la asimetría real del equipo y bloquea el avance esperando que colaboradores consultivos o de apoyo programen módulos críticos.
+\item \textbf{Antipatrón 3: Oversight Ciego (\textit{Blind Oversight} o Falsa Seguridad):} Ocurre cuando el desarrollador asume que su propia autorrevisión o una tabla en prosa mitigan los riesgos. La vulnerabilidad F1 detectada en este trabajo es el caso testigo: sin pruebas de seguridad automatizadas ejecutables en un emulador y sin una pasada adversarial externa, la seguridad por diseño es una ilusión.
+\item \textbf{Antipatrón 4: Acoplamiento Prematuro (\textit{Premature Layering}):} Ocurre cuando se programan abstracciones complejas y contratos desacoplados para colaboradores que aún no existen en el repositorio.
+\end{enumerate}
+
+\subsection{Diseño Experimental de Línea Base (Baseline Comparativo)}
+
+Para avanzar más allá del caso de estudio retrospectivo, la validación empírica formal de LAZY-LOL requiere contrastar experimentalmente dos cohortes equivalentes:
+\begin{itemize}
+\item \textbf{Cohorte A (Línea Base — XP Tradicional):} Equipos estudiantiles con participación asimétrica operando bajo Extreme Programming estándar, especificación convencional de requerimientos y CI básico.
+\item \textbf{Cohorte B (Experimental — LAZY-LOL):} Equipos de idéntica composición y asimetría aplicando LAZY (DoD, time-boxes, Documento de Transferencia mecanizado con IDs \texttt{YLD-xx}) y LOL (Oversight ejecutable mediante tests de reglas en emulador y pasada adversarial obligatoria).
+\item \textbf{Variables de Medición:} Tiempo de entrega del MVP utilizable, defectos de autorización detectados antes y después del despliegue, volatilidad de requerimientos y adopción social por parte de la comunidad usuaria.
+\end{itemize}
+
+En suma: el CC-La-Barranca no fue concebido originalmente como un banco de pruebas para validar LAZY-LOL, sino como un proyecto real frente a restricciones reales. Reconocer abiertamente los fallos iniciales del proceso (como la vulnerabilidad F1) y dotar al marco de criterios de falsabilidad y límites de aplicación es precisamente lo que transforma una relectura descriptiva en una contribución metodológica rigurosa.
+
+\bigskip
+\noindent\textbf{Nota del Autor}
+
+La reinterpretación presentada en este capítulo no modifica ni invalida los resultados del proyecto CC-La-Barranca documentados en las Partes I--IV. El sistema fue desarrollado, desplegado y validado con éxito por la comunidad del CC La Barranca. Lo que este capítulo ofrece es una capa adicional de análisis: la demostración de cómo los aprendizajes reales del proyecto ---incluyendo las vulnerabilidades detectadas y corregidas durante la auditoría externa--- permiten madurar los frameworks hacia una disciplina de ingeniería rigurosa, reproducible y falsable.
 
 
 
