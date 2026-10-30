@@ -1,0 +1,27 @@
+{
+  "title": "LAZY-LOL: Arquitectura Metodológica",
+  "description": "LAZY-LOL: la metodología abierta para estructurar proyectos de software — Lazy scaffolding, luego construcciones Layered, Observable, Loosely-coupled. Este libro aborda la asimetría real de los equipos de desarrollo en contextos académicos, comunitarios y de código abierto mediante el paradigma Solo-First y la integración de agentes sintéticos.",
+  "creators": [
+    {
+      "name": "Morales Mago, Gabriel Andrés",
+      "affiliation": "Universidad Politécnica Territorial del Estado Trujillo \"Mario Briceño Iragorry\" (UPTT-MBI)"
+    }
+  ],
+  "upload_type": "publication",
+  "publication_type": "book",
+  "access_right": "open",
+  "license": "CC-BY-4.0",
+  "keywords": [
+    "software architecture",
+    "methodology",
+    "solo-first",
+    "asymmetric teams",
+    "LAZY framework",
+    "LOL framework",
+    "extreme programming",
+    "agentic coding",
+    "Ollagent",
+    "Firestore security rules"
+  ],
+  "language": "spa"
+}

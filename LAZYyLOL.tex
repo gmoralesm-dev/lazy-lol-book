@@ -183,11 +183,11 @@
 
 \vspace{0.2cm}
 
-\texttt{10.5281/zenodo.20576511}
+\texttt{10.5281/zenodo.23354766}
 
 \vspace{0.2cm}
 
-\texttt{https://doi.org/10.5281/zenodo.20576511}
+\texttt{https://doi.org/10.5281/zenodo.23354766}
 
 \vspace{1.5cm}
 
@@ -225,7 +225,7 @@ preservada en Zenodo mediante DOI.
 \vspace{0.5cm}
 
 {\small
-Versión: v0.2-rev1\\
+Versión: v0.2-rev2\\
 Octubre 2026
 }
 
@@ -274,85 +274,52 @@ Las mejores soluciones tecnológicas no se construyen únicamente para los usuar
 
 A continuación se presenta una lista con las principales abreviaciones utilizadas a lo largo de este libro y sus significados correspondientes:
 
-\vspace{1em}
+\vspace{0.5em}
 
-\begin{table}[htbp]
-\centering
-\small
+{\small
+\begin{center}
 \begin{tabular}{l p{10cm}}
 \toprule
 \textbf{Abreviación} & \textbf{Significado} \\
 \midrule
 \textbf{\color{primary}API} & Application Programming Interface \\
-\addlinespace
 \textbf{\color{primary}BD} & Base de Datos \\
-\addlinespace
 \textbf{\color{primary}BDUF} & Big Design Up Front \\
-\addlinespace
 \textbf{\color{primary}CC} & Consejo Comunal \\
-\addlinespace
 \textbf{\color{primary}CI/CD} & Continuous Integration / Continuous Deployment \\
-\addlinespace
 \textbf{\color{primary}CRUD} & Create, Read, Update, Delete \\
-\addlinespace
 \textbf{\color{primary}CSS} & Cascading Style Sheets \\
-\addlinespace
 \textbf{\color{primary}DOI} & Digital Object Identifier \\
-\addlinespace
 \textbf{\color{primary}DSR} & Design Science Research \\
-\addlinespace
 \textbf{\color{primary}HTML} & HyperText Markup Language \\
-\addlinespace
 \textbf{\color{primary}IA} & Inteligencia Artificial \\
-\addlinespace
 \textbf{\color{primary}IDOR} & Insecure Direct Object Reference \\
-\addlinespace
 \textbf{\color{primary}KPI} & Key Performance Indicator \\
-\addlinespace
 \textbf{\color{primary}LAZY} & Listen, Analyze, Zoom, Yield \\
-\addlinespace
 \textbf{\color{primary}LOL} & Logic, Oversight, Layering \\
-\addlinespace
 \textbf{\color{primary}MVP} & Minimum Viable Product \\
-\addlinespace
 \textbf{\color{primary}OWASP} & Open Web Application Security Project \\
-\addlinespace
 \textbf{\color{primary}PDF} & Portable Document Format \\
-\addlinespace
 \textbf{\color{primary}PNF} & Programa Nacional de Formación \\
-\addlinespace
 \textbf{\color{primary}PNFI} & Programa Nacional de Formación en Informática \\
-\addlinespace
 \textbf{\color{primary}PSI/T} & Proyecto Socio-Integrador/Tecnológico \\
-\addlinespace
 \textbf{\color{primary}QA} & Quality Assurance \\
-\addlinespace
 \textbf{\color{primary}RF} & Requisito Funcional \\
-\addlinespace
 \textbf{\color{primary}RNF} & Requisito No Funcional \\
-\addlinespace
 \textbf{\color{primary}SIW} & Sistema de Información Web \\
-\addlinespace
 \textbf{\color{primary}SPA} & Single Page Application \\
-\addlinespace
 \textbf{\color{primary}STRIDE} & Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege \\
-\addlinespace
 \textbf{\color{primary}UAT} & User Acceptance Testing \\
-\addlinespace
 \textbf{\color{primary}UI} & User Interface \\
-\addlinespace
 \textbf{\color{primary}UID} & User Identifier \\
-\addlinespace
 \textbf{\color{primary}UML} & Unified Modeling Language \\
-\addlinespace
 \textbf{\color{primary}UPTT-MBI} & Universidad Politécnica Territorial del Estado Trujillo \enquote{Mario Briceño Iragorry} \\
-\addlinespace
 \textbf{\color{primary}UX} & User Experience \\
-\addlinespace
 \textbf{\color{primary}XP} & Extreme Programming \\
 \bottomrule
 \end{tabular}
-\end{table}
+\end{center}
+}
 \newpage
 
 \cleardoublepage
@@ -682,6 +649,21 @@ Entender esta diferencia —de recurrencia institucional y restricción normativ
 \item LOL y LAZY no proponen ignorar las metodologías existentes. Proponen un lenguaje más honesto para describir el proceso real de investigación-desarrollo en contextos asimétricos. El PSI/T es el escenario donde ese lenguaje fue necesario y donde puede ser validado con evidencia empírica concreta.
 \item En los capítulos siguientes, se mostrará cómo ese proceso real ---documentado en el caso de estudio de un sistema de gestión para un CC comunitario--- puede ser re-leído a través de los frameworks LOL y LAZY, y qué aporta esa re-lectura tanto al rigor académico como a la utilidad práctica del trabajo.
 \end{itemize}
+
+\section{El Dilema del Free-Rider y el Protocolo de Defensa Curricular}
+
+Una crítica inevitable que cualquier jurado académico o comisión evaluadora del PNF planteará frente al enfoque asimétrico es la aparente contradicción con los reglamentos universitarios: \textit{«El Proyecto Socio-Integrador es una unidad curricular de aprobación colectiva; si el estudiante líder asume el desarrollo en solitario mientras sus pares ocupan roles de apoyo u observación, ¿no se está premiando el polizonaje académico (free-riding) o privando a los demás integrantes de la formación técnica exigida por el perfil del egresado?»}
+
+Esta objeción confunde la simetría burocrática con la división rigurosa del trabajo en ingeniería. En la industria del software moderna, la ingeniería no se reduce exclusivamente a la mecanografía de sintaxis: la investigación etnográfica de campo, la elicitación de requerimientos, el aseguramiento de calidad (QA), las pruebas de usabilidad y la documentación técnica formal constituyen áreas especializadas y legítimas de la ingeniería de software.
+
+Para defender la validez académica y ética de un proyecto gestionado bajo LAZY-LOL frente a comités evaluadores, el equipo implementa el \textbf{Protocolo de Defensa Curricular}:
+
+\begin{enumerate}
+    \item \textbf{Legitimación de Roles Técnicos No-Codificadores:} Quien no programa no queda eximido de responsabilidad; asume formalmente roles indispensables del ciclo de vida. Los integrantes en \textit{Participación de Apoyo} o \textit{Consultiva} deben presentar entregables técnicos rigurosos: el diseño de guiones y análisis de campo en LAZY, la matriz de pruebas de aceptación (UAT) y los manuales técnicos del usuario final dentro de Layering.
+    \item \textbf{Trazabilidad Granular de Autoría:} El uso de la Bitácora de Cruce emparejada con los identificadores inmutables de requerimientos (\texttt{YLD-xx}) y el registro criptográfico de commits en Git erradica la opacidad de las evaluaciones grupales ficticias. Frente al jurado, el equipo presenta un desglose auditable y transparente: quién levantó la necesidad social, quién diseñó la arquitectura y quién validó su funcionamiento en la comunidad.
+    \item \textbf{Erradicación de la Culpa del Desarrollador Líder:} El marco libera al estudiante técnicamente más avanzado del rol de \enquote{remolque emocional} de sus compañeros. Al formalizar los niveles de participación adaptativa, el líder no oculta la asimetría ni maquilla el trabajo ajeno: ofrece un marco claro donde cada estudiante demuestra su aporte en función de evidencias verificables entregadas en el repositorio.
+\end{enumerate}
+
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 \begin{itemize}
 \item Fuente reglamentaria citada en este capítulo:
@@ -809,6 +791,29 @@ Tareas Aisladas de Bajo Contexto: El backlog del proyecto debe contener tareas p
 
 Filtros de Calidad Automatizados (CI/CD): La revisión de la calidad de las contribuciones no se realiza de forma personal. Se delega a las herramientas de integración continua locales y remotas (linters, pruebas y compiladores automáticos) la tarea de aprobar o rechazar el código aportado, actuando como un evaluador neutral.
 
+\section{El Test de Falsabilidad Asimétrica: El Semáforo de la Cabina}
+
+Uno de los mayores errores en proyectos con equipos variables es la ambigüedad: asumir que el equipo es simétrico cuando en realidad es asimétrico, lo que en el capítulo metodológico denominamos \textbf{El Espejismo de la Asimetría} (\textit{Asymmetry Denial}). Intentar aplicar ceremonias ágiles convencionales (reuniones diarias de pie, planificación conjunta de iteraciones o estimación por puntos de historia) en un equipo donde la capacidad operativa no es homogénea conduce a la frustración del programador principal y a la parálisis del proyecto.
+
+Para disipar esta ilusión con objetividad técnica y sin generar fricciones personales, el desarrollador principal aplica al inicio de cada ciclo de trabajo el \textbf{Test de Falsabilidad Asimétrica}. Este instrumento consiste en una evaluación binaria de tres preguntas críticas:
+
+\begin{tcolorbox}[colback=primary!5, colframe=primary!30, arc=5pt, title=Test de Falsabilidad Asimétrica (Evaluación Tripartita)]
+\begin{enumerate}
+    \item \textbf{Criterio de Cadencia Operativa ($C_1$):} ¿Han realizado los colaboradores al menos un aporte verificable (código que compila, documentación estructurada o pruebas ejecutables) en el repositorio dentro de las últimas 72 horas sin requerir recordatorios manuales?
+    \item \textbf{Criterio de Paridad de Entorno ($C_2$):} ¿Son los colaboradores capaces de clonar, compilar y ejecutar el proyecto en su máquina local de forma autónoma utilizando los scripts del repositorio, sin solicitar soporte técnico directo al programador principal?
+    \item \textbf{Criterio de Resolución de Fallos ($C_3$):} Ante una falla en el servidor de integración continua (CI) provocada por su código, ¿puede el colaborador diagnosticar el error en el registro y corregirlo de manera independiente en su rama de trabajo?
+\end{enumerate}
+\end{tcolorbox}
+
+La regla de decisión metodológica es determinante y no negociable:
+
+\begin{itemize}
+    \item \textbf{Resultado 3/3 (Sincronía Verificada):} El equipo califica como técnicamente simétrico. Es seguro habilitar flujos de trabajo colaborativos convencionales, delegar módulos críticos y programar sesiones síncronas de integración.
+    \item \textbf{Menos de 3 afirmativas (Asimetría Estructural):} El proyecto entra automáticamente en \textbf{Modo Solo-First Obligatorio}. El desarrollador principal asume la totalidad de la ruta crítica del software. Los demás integrantes no son excluidos ni sancionados moralmente; son inmediatamente reasignados a los roles adaptativos de LOL (\textit{Participación de Apoyo}, \textit{Consultoría} o \textit{Validación con Usuarios}), impidiendo que la inactividad técnica bloquee el cronograma de entrega.
+\end{itemize}
+
+El Test de Falsabilidad Asimétrica transforma una discusión subjetiva sobre compromiso en un hecho de ingeniería observable.
+
 
 \chapter{La Consola de Mandos: Git Asimétrico y Automatización de Defensa}
 
@@ -835,6 +840,30 @@ Linters y Formateadores en Pre-Commit: Se configuran ganchos de Git locales (usa
 Pipelines de Integración Continua (CI): Cada Pull Request abierto hacia la rama principal activa un flujo automatizado en la nube (ej. GitHub Actions). El servidor realiza una instalación limpia de dependencias, compila el código y ejecuta toda la suite de pruebas unitarias. Si ocurre un solo fallo, la fusión (merge) se bloquea de forma automática. La máquina es el árbitro neutral; si el código está roto, el sistema se lo notifica directamente al colaborador sin tu intervención.
 
 Contenedores de Desarrollo (DevContainers): Proporcionamos archivos de configuración de Docker para que el entorno de desarrollo se ejecute dentro de un contenedor. Esto garantiza que todos los miembros del equipo usen exactamente el mismo sistema operativo, versiones de librerías y base de datos, eliminando la clásica excusa de \enquote{es que en mi máquina sí compila}.
+
+\section{El Protocolo de Contribución Asimétrica en Repositorios (Las Reglas de Oro)}
+
+Cuando un colaborador decide pasar de un rol pasivo a la entrega activa de código en GitHub o cualquier plataforma de repositorios, no se le permite realizar aportes desordenados. La asimetría no es una invitación a la anarquía técnica. Para blindar la energía cognitiva del desarrollador principal y la estabilidad del sistema, todo aporte externo debe someterse estrictamente a las siguientes seis reglas metodológicas:
+
+\begin{enumerate}
+    \item \textbf{La Rama \texttt{main} es Sagrada (Prohibición de Push Directo):} La rama principal representa el estado inalterable de producción. Queda estrictamente vedado el acceso de escritura directo a \texttt{main}. Todo cambio debe gestarse en una rama de característica aislada (\texttt{feature/nombre-tarea}) y dirigirse hacia la rama de cuarentena (\texttt{staging-contributors}), nunca a producción.
+    
+    \item \textbf{La Regla del Micro-PR ($\le 300$ líneas de cambio):} En equipos asimétricos es común el \enquote{volcado masivo} (\textit{code dumping}), donde un colaborador ausente reaparece entregando un Pull Request de miles de líneas que modifica decenas de archivos, haciendo inviable su revisión. El framework impone un límite estricto de $\le 300-400$ líneas modificadas por PR, acotado a una única unidad de especificación. Cualquier entrega que supere este volumen debe dividirse en incrementos secuenciales más pequeños.
+    
+    \item \textbf{Trazabilidad Semántica y Vinculación a la Bitácora de Cruce:} Todo commit y título de Pull Request debe seguir la convención de \textit{Conventional Commits} e incluir explícitamente el identificador inmutable de la unidad de la Bitácora de Cruce (\texttt{YLD-xx}) que satisface:
+    \begin{center}
+    \texttt{feat(YLD-00): validar rol de usuario en registro [RF-04/RNF-02]}
+    \end{center}
+    Esto permite que el script de trazabilidad mecanizada (\texttt{npm run check:traceability}) valide automáticamente que ningún requerimiento quede huérfano de código o suite de pruebas.
+
+    \item \textbf{Blindaje Antifuga de Secretos y Credenciales:} El repositorio y el pipeline de CI incorporan escaneo automatizado de secretos (utilizando herramientas como Gitleaks o Trufflehog). Como se demostró en el incidente de saneamiento de credenciales de arranque en el commit \texttt{d2471cc6}, ningún Pull Request que introduzca archivos \texttt{.env}, claves privadas o credenciales de servicios puede ser aprobado ni fusionado; el CI aborta el flujo automáticamente.
+
+    \item \textbf{Bloqueo por Cobertura y Regresión de Seguridad:} Bajo el pilar Oversight, ninguna fusión es permitida si reduce el porcentaje de cobertura de código del sistema o si omite pruebas en emuladores para rutas de seguridad sensibles. Si un cambio toca reglas de acceso o módulos de autorización, debe acompañarse de su correspondiente prueba negativa automatizada contra vulnerabilidades (como el vector STRIDE-E demostrado en la prueba F1).
+
+    \item \textbf{Autonomía Obligatoria en la Resolución de Fallos de CI:} El desarrollador principal no actúa como depurador personal de terceros. Si el pipeline de GitHub Actions falla, el colaborador es responsable de consultar los registros del servidor, reproducir el fallo localmente en su contenedor o emulador y corregirlo de forma autónoma antes de solicitar cualquier revisión.
+\end{enumerate}
+
+Para formalizar estas reglas dentro del repositorio, se recomienda incorporar una plantilla obligatoria de Pull Request (\texttt{.github/pull\_request\_template.md}) que obligue al colaborador a certificar: la unidad de la Bitácora cubierta, la evidencia de ejecución local (captura de pantalla o traza de prueba) y la ausencia de modificaciones no autorizadas en el núcleo del sistema.
 
 
 \chapter{El Manifiesto Solo-First}
@@ -1424,6 +1453,22 @@ Un control de seguridad o regla de acceso solo se considera \enquote{completado}
 
 Describir un control en una tabla de amenazas no mitiga una vulnerabilidad; solo una suite de pruebas automatizadas (como pruebas de reglas de Firebase ejecutadas sobre un emulador local) proporciona la certeza técnica de que la regla de control de acceso es inviolable.
 
+\subsection{El Protocolo de la Pasada Adversarial (Rompiendo la Cámara de Eco Cognitiva)}
+
+La mayor trampa psicológica para el desarrollador en solitario es el \textbf{sesgo de confirmación}: un programador tiende a redactar pruebas automatizadas que simplemente reafirman lo que acaba de codificar. Si el modelo mental original contiene un defecto conceptual de autorización (como asumir que \texttt{request.auth.uid == userId} impedía la auto-asignación de roles en la vulnerabilidad F1), el desarrollador escribirá pruebas ingenuas que validan esa misma premisa errónea, manteniendo la suite en un falso verde.
+
+Para romper este sesgo sin necesidad de un equipo síncrono permanente, LOL instituye la \textbf{Pasada Adversarial Obligatoria} al cierre de cada incremento de seguridad:
+
+\begin{enumerate}
+    \item \textbf{Disociación Temporal (El Cambio a Sombrero Negro):} Las pruebas de Oversight de seguridad jamás se escriben inmediatamente después de finalizar la funcionalidad. El desarrollador deja reposar el código e inicia una sesión independiente con la mentalidad explícita de un atacante externo malicioso cuyo único objetivo es vulnerar el sistema.
+    \item \textbf{La Regla de las Dos Pruebas Negativas Obligatorias:} Por cada ruta o permiso configurado, la suite debe incorporar al menos dos pruebas destructivas:
+    \begin{itemize}
+        \item Una prueba de falsificación de identidad o escalada horizontal (acceder a registros ajenos mediante manipulación de identificadores).
+        \item Una prueba de escalada vertical (auto-promoción a roles directivos o gestores, validada mediante aserciones como \texttt{assertFails(setDoc(...))}).
+    \end{itemize}
+    \item \textbf{Red Teaming Sintético con Agentes Autónomos:} En consonancia con la Participación Sintética (Nivel 5), el desarrollador entrega el esquema de datos y las reglas declarativas a un agente de inteligencia artificial (como Ollagent) bajo un prompt hostil: \enquote{\textit{Analiza este esquema y estas reglas de seguridad; tu tarea exclusiva es proponer tres vectores de ataque o cargas útiles que permitan leer datos privados o elevar privilegios sin autorización}}. Esta verificación sintética e independiente opera sin el apego emocional ni los puntos ciegos del autor original.
+\end{enumerate}
+
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
 \section{Pilar L: Layering}
@@ -1449,6 +1494,18 @@ La pregunta central es:
 \end{keyquestion}
 
 Este enfoque facilita el mantenimiento, la escalabilidad y la evolución futura del sistema.
+
+\subsection{Las Barreras Innegociables de Layering (Prevención de la Deuda Técnica Invisible)}
+
+Bajo condiciones de presión por entregas o desarrollo nocturno solitario, surge una tentación natural pero destructiva: el atajo arquitectónico. Al no tener compañeros que revisen el código de forma síncrona, el desarrollador puede verse tentado a acoplar llamadas directas a la base de datos dentro de los botones de la interfaz visual de React, mezclar reglas de validación en componentes de presentación y acumular miles de líneas de código en un solo archivo bajo la justificación de \enquote{más adelante lo refactorizo}.
+
+En LOL, la \textbf{Hiper-Simplicidad} no es una justificación para el desorden ni para el código espagueti; simplicidad significa programar menos abstracciones superfluas, pero respetar de forma inquebrantable las fronteras definidas:
+
+\begin{enumerate}
+    \item \textbf{La Regla de la Frontera Estricta (Boundary Enforcement):} Ningún componente visual de presentación puede importar directamente los clientes de base de datos (\texttt{firebase/firestore}) o manipular tokens de autenticación en bajo nivel. Toda comunicación debe fluir a través de módulos de servicio o adaptadores desacoplados. La violación de esta regla no se deja a la disciplina mental del programador: se automatiza mediante reglas de linter estático (como \texttt{eslint-plugin-import} con rutas restringidas) que impiden compilar si un componente de interfaz salta una capa.
+    \item \textbf{Límite de Densidad de Componentes (Tope de 250 Líneas):} Cuando un archivo de interfaz visual supera las 250 líneas de código, se activa una señal de advertencia metodológica inmediata. El exceso de longitud es el síntoma inequívoco de que el componente está absorbiendo lógica de estado o coordinación que corresponde a otra capa. El desarrollador debe extraer subcomponentes o funciones utilitarias puras antes de continuar agregando funcionalidades.
+    \item \textbf{Aislamiento de la Lógica de Dominio frente a la Infraestructura:} El código que calcula beneficios, clasifica la vulnerabilidad comunitaria o valida la duplicidad de un documento familiar debe residir en funciones puras y desacopladas de las librerías del proveedor de nube. Si mañana Firebase o el proveedor de persistencia es reemplazado por PostgreSQL o SQLite local, las reglas centrales del Consejo Comunal deben sobrevivir sin requerir una reescritura total del sistema.
+\end{enumerate}
 
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
@@ -1579,6 +1636,27 @@ Incluye participantes cuya función principal consiste en seguir el avance del p
 Estos participantes pueden actuar como observadores, usuarios piloto o representantes de grupos de interés.
 
 Su objetivo no es dirigir el proyecto ni intervenir constantemente, sino contribuir a mantener una visión independiente sobre los resultados obtenidos.
+
+\par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
+
+\subsection{Nivel 5: Participación Sintética (Agentes de Inteligencia Artificial)}
+
+El surgimiento de asistentes de programación en la terminal y agentes autónomos de código (tales como \textbf{Ollagent}, el copiloto de consola concebido bajo los principios de este libro) introduce un quinto nivel de participación cualitativamente distinto a los anteriores: la \textbf{Participación Sintética}.
+
+Un agente de inteligencia artificial no es un desarrollador humano ni un simple editor de texto automatizado. En el marco de la asimetría, el agente de IA representa el caso extremo de un colaborador asimétrico:
+\begin{itemize}
+    \item \textbf{Capacidades:} Velocidad de transcripción casi instantánea, disponibilidad ininterrumpida y conocimiento sintáctico enciclopédico sobre múltiples librerías y lenguajes.
+    \item \textbf{Vulnerabilidades:} Ausencia absoluta de intuición sobre el contexto comunitario, tendencia a proponer arquitecturas sobre-acopladas (alucinaciones estructurales) y desconocimiento de las restricciones de despliegue reales.
+\end{itemize}
+
+Bajo la metodología LOL, el agente de IA jamás recibe control irrestricto sobre la arquitectura ni sobre la rama principal. Se gobierna mediante el mismo principio de \textbf{Acoplamiento Dinámico}:
+\begin{enumerate}
+    \item \textbf{Contrato Cerrado de Tarea (Fase Zoom):} Al agente no se le solicita \enquote{crear el sistema}, sino resolver una función o componente acotado con especificación exacta de entradas y salidas basada en la Bitácora de Cruce.
+    \item \textbf{Aislamiento de Capa (Layering):} El agente genera código únicamente dentro de módulos de adaptación periférica o capas desacopladas, sin acceso para redefinir el esquema de datos o la configuración del núcleo.
+    \item \textbf{Supervisión Automática por Defecto (Oversight):} El código sintético debe superar la misma batería de pruebas unitarias, linters y suites de seguridad en emuladores antes de que el programador humano autorice su fusión al repositorio.
+\end{enumerate}
+
+De este modo, el desarrollador principal deja de ser un redactor manual de sintaxis para convertirse en el \textbf{Director de Vuelo} de la cabina, apalancando la velocidad de la máquina sin ceder el control metodológico.
 
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
@@ -1814,17 +1892,24 @@ En este sentido, LAZY y LOL no representan procesos separados, sino diferentes e
 
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
-\section{Retroalimentación Continua}
+\section{Retroalimentación Continua: El Protocolo de Retorno de Realidad (Reverse-Yield)}
 
-Aunque la integración principal ocurre cuando LAZY entrega información a LOL, la relación entre ambos marcos no es completamente unidireccional.
+Aunque la integración principal ocurre cuando LAZY entrega información a LOL mediante el Documento de Transferencia, la relación entre ambos marcos no es un conducto unidireccional ni una cascada rígida.
 
-Durante el desarrollo pueden surgir descubrimientos técnicos, limitaciones operativas o nuevas necesidades que requieran revisar hipótesis previamente establecidas.
+Durante la construcción técnica en LOL ---particularmente en las fases de Lógica (\textit{Logic}) y Supervisión (\textit{Oversight})--- surgen con frecuencia descubrimientos de infraestructura, cuotas de consumo, limitaciones de conectividad o vectores de amenaza (como la vulnerabilidad de elevación de privilegios documentada en el caso de estudio) que invalidan las suposiciones iniciales acordadas con la comunidad.
 
-Cuando esto ocurre, LOL puede generar retroalimentación hacia LAZY.
+En las metodologías tradicionales, el desarrollador que se enfrenta a este desajuste suele cometer uno de dos errores: o implementa un parche unilateral arbitrario a espaldas de los usuarios, o paraliza el avance del proyecto en espera de interminables reuniones de renegociación.
 
-Esta comunicación bidireccional permite actualizar requisitos, redefinir prioridades y mejorar la comprensión del problema original.
+Para resolver esta tensión sin romper el ritmo del desarrollador Solo-First, introducimos el \textbf{Protocolo de Retorno de Realidad (\textit{Reverse-Yield})}. Este protocolo formaliza el flujo bidireccional mediante cuatro pasos rigurosos:
 
-La arquitectura resultante se comporta como un sistema de aprendizaje continuo.
+\begin{enumerate}
+    \item \textbf{Detección de Fricción Arquitectónica (Break in Oversight):} Una prueba automatizada, una regla de seguridad o una restricción de cuotas en el entorno de despliegue demuestra que un requisito funcional no puede ser implementado bajo las condiciones no funcionales originalmente estipuladas.
+    \item \textbf{Mapeo en la Bitácora de Cruce:} El desarrollador localiza la unidad exacta de especificación (el par RF + RNF) afectada en la Bitácora de Cruce. El código no se modifica de forma desordenada; se marca temporalmente la unidad como \textit{En Revisión por Fricción Técnica}.
+    \item \textbf{Micro-Ciclo LAZY de Consulta:} Se activa un micro-ciclo acotado de LAZY (habitualmente una consulta directa de 15 minutos en fase \textit{Listen} o un mensaje asíncrono en \textit{Analyze}) con los representantes comunitarios o usuarios clave. El programador no expone jerga técnica (\enquote{los índices compuestos de Firestore fallan}), sino el impacto concreto en la experiencia (\enquote{para que la búsqueda sea instantánea sin colapsar el presupuesto, ¿es aceptable filtrar solo por calle en lugar de búsqueda libre por texto completo?}).
+    \item \textbf{Re-Suscripción de la Bitácora (Yield Re-autorizado):} La unidad RF + RNF se actualiza con el nuevo criterio acordado. Solo en ese momento LOL reanuda la codificación en la capa correspondiente.
+\end{enumerate}
+
+Este mecanismo transforma la retroalimentación en un circuito cerrado y verificable: la técnica no atropella a la comunidad, pero la comunidad tampoco exige imposibles físicos al software. La arquitectura resultante se comporta verdaderamente como un sistema de aprendizaje continuo.
 
 \par\vspace{1.5em}\noindent\hfill\rule{0.25\textwidth}{0.6pt}\hfill\par\vspace{1.5em}
 
@@ -2135,14 +2220,18 @@ Oversight — Configuración \\
 
 La Fase Logic estableció las reglas fundamentales del sistema antes de escribir código funcional. El artefacto central de esta fase fue la definición del esquema de datos de Firestore y la especificación del sistema de roles, derivados directamente del Documento de Transferencia de LAZY.
 
-El sistema organiza toda su información bajo la colección raíz Consejo-Comunal-La-Barranca, con ocho subcolecciones funcionales que reflejan los módulos operativos del Consejo Comunal:
+El sistema organiza toda su información bajo la colección raíz \texttt{Consejo-Comunal-La-Barranca}, con ocho subcolecciones funcionales que reflejan los módulos operativos del Consejo Comunal:
 
-
-
-
-
-
-Una decisión de diseño significativa de la Fase Logic fue la arquitectura del sistema de roles. En lugar de almacenar los roles en el token de autenticación del cliente ---donde podrían ser manipulados--- se optó por persistirlos en la base de datos del servidor y consultarlos desde las Security Rules mediante la función getUserRole(). Esta decisión mitiga directamente la amenaza de Elevation of Privilege (E) del modelo STRIDE.
+\begin{enumerate}
+    \item \texttt{families}: Padrón censal de núcleos familiares (con subcolecciones anidadas \texttt{members} para datos de los integrantes y \texttt{receipts} para el historial inmutable de beneficios).
+    \item \texttt{deliveries}: Registro y planificación de jornadas de distribución de beneficios y eventos comunitarios.
+    \item \texttt{comunicados}: Cartelera comunitaria pública para anuncios oficiales (con subcolección anidada \texttt{comments} para participación ciudadana).
+    \item \texttt{certificates}: Emisión y verificación de constancias de residencia y certificados comunitarios en PDF.
+    \item \texttt{reports}: Métricas demográficas consolidadas, distribución por vulnerabilidad y estadísticas en tiempo real.
+    \item \texttt{users}: Directorio de usuarios autenticados y asignación de roles controlada en el servidor.
+    \item \texttt{invitados}: Gestión de sesiones temporales y perfiles de acceso preliminar.
+    \item \texttt{data}: Parámetros globales de configuración, contadores agregados y metadatos operativos del Consejo Comunal.
+\end{enumerate} de la Fase Logic fue la arquitectura del sistema de roles. En lugar de almacenar los roles en el token de autenticación del cliente ---donde podrían ser manipulados--- se optó por persistirlos en la base de datos del servidor y consultarlos desde las Security Rules mediante la función getUserRole(). Esta decisión mitiga directamente la amenaza de Elevation of Privilege (E) del modelo STRIDE.
 
 
 \begin{tcolorbox}[
@@ -2163,7 +2252,9 @@ function isManager() {
                "administrador",
                "admin",
                "lider_de_calle",
-               "vocera_principal"
+               "vocera_principal",
+               "vocera",
+               "vocero"
            };
 }
 \end{verbatim}
@@ -2655,7 +2746,7 @@ Analyze (Analizar): Se desglosa el trabajo en micro-tareas aisladas del camino c
 
 Zoom (Enfocarse): Se define la tarea con un contrato de entrada y salida exacto. El colaborador sabe qué datos procesa su función y qué debe retornar, sin necesidad de comprender el resto del sistema.
 
-Yield (Ceder/Producir): El colaborador entrega su código en la rama de staging para que pase las pruebas automáticas. Si las pruebas son exitosas, el código se integra; si fallan, se devuelve al colaborador para que lo corrija, sin afectar tu flujo de desarrollo.
+Yield (Ceder/Producir): El colaborador entrega su código mediante un Pull Request acotado ($\le 300$ líneas) dirigido a la rama de \texttt{staging}, respaldado por la plantilla de validación del repositorio. El pipeline de CI ejecuta el escaneo de secretos, linters y pruebas automáticas de cobertura. Si las verificaciones son exitosas, el código se integra; si fallan, la máquina rechaza la fusión y el colaborador debe corregir el fallo de forma autónoma, preservando el flujo y la energía del desarrollador principal.
 
 \section{Fase 3: Gobierno Descentralizado (El Ecosistema Socio-Tecnológico)}
 
@@ -2781,6 +2872,22 @@ Nuestra metodología mitiga estos riesgos mediante el aislamiento técnico y la 
 El framework diferencia claramente entre fallos imprudentes debido a la falta de rigor técnico y fallos de bajo costo diseñados para obtener conocimiento inmediato.
 
 En lugar de pasar semanas en debates teóricos sobre qué arquitectura o librería elegir, fomentamos la creación de \enquote{trazadores} o prototipos de código rápidos (spikes) de corta duración en cada ciclo. Estos desarrollos preliminares se implementan con el objetivo de validar una hipótesis técnica en el entorno real de forma rápida y barata. Si el prototipo falla, el costo ha sido mínimo y la claridad técnica ganada es inmediata, permitiéndote reorientar el desarrollo y avanzar con paso firme hacia la solución definitiva.
+
+\section{El Factor Autobús (Bus Factor) y el Protocolo de Relevo Asimétrico}
+
+La objeción más incisiva que cualquier evaluador de software o jurado académico formulará frente a una metodología Solo-First es el \textbf{Factor Autobús} (\textit{Bus Factor}): \textit{«Si el Astronauta Solitario abandona el proyecto, enferma o culmina su ciclo formativo en el PNF, ¿el software muere con su partida?»}
+
+En el desarrollo artesanal no estructurado, la respuesta histórica suele ser afirmativa: los sistemas unipersonales colapsan porque el diseño residía exclusivamente en la mente del programador. 
+
+Sin embargo, en la arquitectura LAZY-LOL el proyecto no depende de la presencia física permanente del creador original, sino de la auto-explicación de sus artefactos. Diseñamos la metodología para que un relevo generacional o la llegada de un nuevo mantenedor pueda tomar el mando de la cabina en un plazo estricto de \textbf{48 horas} mediante el siguiente protocolo de tres fases:
+
+\begin{enumerate}
+    \item \textbf{Fase de Inmersión Intencional (Horas 0 a 12):} El nuevo desarrollador no lee código fuente de manera desordenada; lee la \textbf{Bitácora de Cruce} de LAZY. En pocas horas comprende el mapa social del proyecto, qué dolores comunitarios motivaron cada pantalla y cuáles requisitos no funcionales (seguridad, cuotas, privacidad) condicionaron la arquitectura.
+    \item \textbf{Fase de Validación de Invariantes (Horas 12 a 24):} El relevo ejecuta el entorno local con un único comando y corre la suite de pruebas del pilar \textbf{Oversight} (pruebas de emulador y reglas de seguridad). La máquina actúa como el instructor: si el nuevo mantenedor rompe inadvertidamente una regla de acceso o introduce una vulnerabilidad tipo F1, la suite de pruebas falla de inmediato, educándolo en los límites del sistema sin riesgo de corrupción en producción.
+    \item \textbf{Fase de Primer Vuelo Desacoplado (Horas 24 a 48):} Gracias al principio de \textbf{Capas (Layering)}, el nuevo piloto no necesita dominar la totalidad de la lógica interna de la base de datos para ser productivo. Se le asigna una tarea de bajo contexto en una capa periférica (por ejemplo, un nuevo reporte visual o una validación de interfaz) a través de contratos de API estables, entregando su primer incremento funcional a través de una rama aislada de Git.
+\end{enumerate}
+
+De esta manera, LAZY-LOL neutraliza el riesgo del desarrollador único: el Astronauta puede aterrizar su nave y ceder el mando, garantizando que el impacto socio-tecnológico en la comunidad trascienda la permanencia de sus autores originales.
 
 
 \chapter{Limitaciones y Trabajo Futuro}
