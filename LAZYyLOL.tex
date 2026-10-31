@@ -827,7 +827,7 @@ Protección del main: La rama main es sagrada y representa producción estable. 
 
 Ramas de Micro-Features: Cada funcionalidad se construye en su propia rama aislada (ej. feature/auth-core, feature/api-endpoints). Esto te permite detener el trabajo en un módulo, guardar el estado en una rama, y cambiar de contexto a otra de forma segura y limpia en segundos.
 
-La Rama de Staging de Colaboradores: Para gestionar las contribuciones externas del equipo sin poner en riesgo la estabilidad del software, definimos una rama de cuarentena (ej. staging-contributors). Todo código aportado por compañeros de equipo debe integrarse y probarse primero en esta rama antes de ser considerado para la rama principal.
+La Zona de Cuarentena de Colaboradores: Para gestionar las contribuciones externas del equipo sin poner en riesgo la estabilidad del software, se define un proceso de cuarentena basado en ramas de característica aisladas (ej. \texttt{feature/nombre-tarea}). Todo código aportado por compañeros de equipo debe integrarse y probarse en su propia rama antes de ser considerado para la rama principal. En proyectos con volumen de colaboradores que lo justifique, este proceso puede materializarse en una rama dedicada de integración (ej. \texttt{staging-contributors}), planificada como paso previo al escalado del equipo.
 
 \section{Automatización de Defensa: El Servidor como Filtro Neutral}
 
@@ -846,9 +846,9 @@ Contenedores de Desarrollo (DevContainers): Proporcionamos archivos de configura
 Cuando un colaborador decide pasar de un rol pasivo a la entrega activa de código en GitHub o cualquier plataforma de repositorios, no se le permite realizar aportes desordenados. La asimetría no es una invitación a la anarquía técnica. Para blindar la energía cognitiva del desarrollador principal y la estabilidad del sistema, todo aporte externo debe someterse estrictamente a las siguientes seis reglas metodológicas:
 
 \begin{enumerate}
-    \item \textbf{La Rama \texttt{main} es Sagrada (Prohibición de Push Directo):} La rama principal representa el estado inalterable de producción. Queda estrictamente vedado el acceso de escritura directo a \texttt{main}. Todo cambio debe gestarse en una rama de característica aislada (\texttt{feature/nombre-tarea}) y dirigirse hacia la rama de cuarentena (\texttt{staging-contributors}), nunca a producción.
+    \item \textbf{La Rama \texttt{main} es Sagrada (Prohibición de Push Directo):} La rama principal representa el estado inalterable de producción. Queda estrictamente vedado el acceso de escritura directo a \texttt{main}. Todo cambio debe gestarse en una rama de característica aislada (\texttt{feature/nombre-tarea}) y dirigirse hacia una rama de integración intermedia (ej. \texttt{staging-contributors}, planificada para cuando el equipo crezca), nunca directamente a producción.
     
-    \item \textbf{La Regla del Micro-PR ($\le 300$ líneas de cambio):} En equipos asimétricos es común el \enquote{volcado masivo} (\textit{code dumping}), donde un colaborador ausente reaparece entregando un Pull Request de miles de líneas que modifica decenas de archivos, haciendo inviable su revisión. El framework impone un límite estricto de $\le 300-400$ líneas modificadas por PR, acotado a una única unidad de especificación. Cualquier entrega que supere este volumen debe dividirse en incrementos secuenciales más pequeños.
+    \item \textbf{La Regla del Micro-PR ($\le 300$ líneas de cambio):} En equipos asimétricos es común el \enquote{volcado masivo} (\textit{code dumping}), donde un colaborador ausente reaparece entregando un Pull Request de miles de líneas que modifica decenas de archivos, haciendo inviable su revisión. El framework impone un límite estricto de $\le 300$ líneas modificadas por PR, acotado a una única unidad de especificación. Cualquier entrega que supere este volumen debe dividirse en incrementos secuenciales más pequeños.
     
     \item \textbf{Trazabilidad Semántica y Vinculación a la Bitácora de Cruce:} Todo commit y título de Pull Request debe seguir la convención de \textit{Conventional Commits} e incluir explícitamente el identificador inmutable de la unidad de la Bitácora de Cruce (\texttt{YLD-xx}) que satisface:
     \begin{center}
@@ -856,7 +856,7 @@ Cuando un colaborador decide pasar de un rol pasivo a la entrega activa de códi
     \end{center}
     Esto permite que el script de trazabilidad mecanizada (\texttt{npm run check:traceability}) valide automáticamente que ningún requerimiento quede huérfano de código o suite de pruebas.
 
-    \item \textbf{Blindaje Antifuga de Secretos y Credenciales:} El repositorio y el pipeline de CI incorporan escaneo automatizado de secretos (utilizando herramientas como Gitleaks o Trufflehog). Como se demostró en el incidente de saneamiento de credenciales de arranque en el commit \texttt{d2471cc6}, ningún Pull Request que introduzca archivos \texttt{.env}, claves privadas o credenciales de servicios puede ser aprobado ni fusionado; el CI aborta el flujo automáticamente.
+    \item \textbf{Blindaje Antifuga de Secretos y Credenciales:} El protocolo exige que el repositorio y cualquier pipeline de integración continua incorporen escaneo automatizado de secretos (mediante herramientas como Gitleaks o Trufflehog) como control de entrada planificado. Como se demostró en el incidente de saneamiento de credenciales de arranque en el commit \texttt{d2471cc6}, ningún Pull Request que introduzca archivos \texttt{.env}, claves privadas o credenciales de servicios debería poder ser aprobado ni fusionado; este control debe implementarse como gate de CI antes de abrir el repositorio a colaboradores externos.
 
     \item \textbf{Bloqueo por Cobertura y Regresión de Seguridad:} Bajo el pilar Oversight, ninguna fusión es permitida si reduce el porcentaje de cobertura de código del sistema o si omite pruebas en emuladores para rutas de seguridad sensibles. Si un cambio toca reglas de acceso o módulos de autorización, debe acompañarse de su correspondiente prueba negativa automatizada contra vulnerabilidades (como el vector STRIDE-E demostrado en la prueba F1).
 
@@ -1502,7 +1502,7 @@ Bajo condiciones de presión por entregas o desarrollo nocturno solitario, surge
 En LOL, la \textbf{Hiper-Simplicidad} no es una justificación para el desorden ni para el código espagueti; simplicidad significa programar menos abstracciones superfluas, pero respetar de forma inquebrantable las fronteras definidas:
 
 \begin{enumerate}
-    \item \textbf{La Regla de la Frontera Estricta (Boundary Enforcement):} Ningún componente visual de presentación puede importar directamente los clientes de base de datos (\texttt{firebase/firestore}) o manipular tokens de autenticación en bajo nivel. Toda comunicación debe fluir a través de módulos de servicio o adaptadores desacoplados. La violación de esta regla no se deja a la disciplina mental del programador: se automatiza mediante reglas de linter estático (como \texttt{eslint-plugin-import} con rutas restringidas) que impiden compilar si un componente de interfaz salta una capa.
+    \item \textbf{La Regla de la Frontera Estricta (Boundary Enforcement):} Ningún componente visual de presentación puede importar directamente los clientes de base de datos (\texttt{firebase/firestore}) o manipular tokens de autenticación en bajo nivel. Toda comunicación debe fluir a través de módulos de servicio o adaptadores desacoplados. La intención de diseño es automatizar esta restricción mediante reglas de linter estático (como \texttt{eslint-plugin-import} con rutas restringidas) que bloqueen la compilación si un componente de interfaz salta una capa; mientras no esté configurado, la frontera se custodia mediante revisión de código en cada PR.
     \item \textbf{Límite de Densidad de Componentes (Tope de 250 Líneas):} Cuando un archivo de interfaz visual supera las 250 líneas de código, se activa una señal de advertencia metodológica inmediata. El exceso de longitud es el síntoma inequívoco de que el componente está absorbiendo lógica de estado o coordinación que corresponde a otra capa. El desarrollador debe extraer subcomponentes o funciones utilitarias puras antes de continuar agregando funcionalidades.
     \item \textbf{Aislamiento de la Lógica de Dominio frente a la Infraestructura:} El código que calcula beneficios, clasifica la vulnerabilidad comunitaria o valida la duplicidad de un documento familiar debe residir en funciones puras y desacopladas de las librerías del proveedor de nube. Si mañana Firebase o el proveedor de persistencia es reemplazado por PostgreSQL o SQLite local, las reglas centrales del Consejo Comunal deben sobrevivir sin requerir una reescritura total del sistema.
 \end{enumerate}
@@ -2220,7 +2220,7 @@ Oversight — Configuración \\
 
 La Fase Logic estableció las reglas fundamentales del sistema antes de escribir código funcional. El artefacto central de esta fase fue la definición del esquema de datos de Firestore y la especificación del sistema de roles, derivados directamente del Documento de Transferencia de LAZY.
 
-El sistema organiza toda su información bajo la colección raíz \texttt{Consejo-Comunal-La-Barranca}, con ocho subcolecciones funcionales que reflejan los módulos operativos del Consejo Comunal:
+El sistema organiza toda su información bajo la colección raíz \texttt{Consejo-Comunal-La-Barranca}, con siete subcolecciones funcionales que reflejan los módulos operativos del Consejo Comunal:
 
 \begin{enumerate}
     \item \texttt{families}: Padrón censal de núcleos familiares (con subcolecciones anidadas \texttt{members} para datos de los integrantes y \texttt{receipts} para el historial inmutable de beneficios).
@@ -2230,8 +2230,9 @@ El sistema organiza toda su información bajo la colección raíz \texttt{Consej
     \item \texttt{reports}: Métricas demográficas consolidadas, distribución por vulnerabilidad y estadísticas en tiempo real.
     \item \texttt{users}: Directorio de usuarios autenticados y asignación de roles controlada en el servidor.
     \item \texttt{invitados}: Gestión de sesiones temporales y perfiles de acceso preliminar.
-    \item \texttt{data}: Parámetros globales de configuración, contadores agregados y metadatos operativos del Consejo Comunal.
-\end{enumerate} de la Fase Logic fue la arquitectura del sistema de roles. En lugar de almacenar los roles en el token de autenticación del cliente ---donde podrían ser manipulados--- se optó por persistirlos en la base de datos del servidor y consultarlos desde las Security Rules mediante la función getUserRole(). Esta decisión mitiga directamente la amenaza de Elevation of Privilege (E) del modelo STRIDE.
+\end{enumerate}
+
+La arquitectura del sistema de roles fue la segunda decisión de diseño central de la Fase Logic. En lugar de almacenar los roles en el token de autenticación del cliente ---donde podrían ser manipulados--- se optó por persistirlos en la base de datos del servidor y consultarlos desde las Security Rules mediante la función getUserRole(). Esta decisión mitiga directamente la amenaza de Elevation of Privilege (E) del modelo STRIDE.
 
 
 \begin{tcolorbox}[
@@ -2301,6 +2302,46 @@ test('[F1/STRIDE-E] Usuario común NO puede promoverse a administrador',
 \end{verbatim}
 \smallskip
 \textit{Suite automatizada ejecutada sobre Firebase Emulator mediante @firebase/rules-unit-testing (archivo test/firestore.rules.test.js).}
+\end{tcolorbox}
+
+\begin{tcolorbox}[
+    colback=primary!5,
+    colframe=primary!30,
+    arc=5pt,
+    title=Prueba negativa: vocera/vocero NO puede escribir fuera de su alcance autorizado
+]
+\begin{verbatim}
+test('[STRIDE-E] vocera/vocero NO puede borrar perfil de otro usuario', 
+  async () => {
+    const voceraUid = 'vocera-001';
+    const targetUid = 'user-ajeno-999';
+
+    // Configurar vocera con rol legítimo
+    await testEnv.withSecurityRulesDisabled(async (context) => {
+      const db = context.firestore();
+      await setDoc(
+        doc(db, 'Consejo-Comunal-La-Barranca', 'data',
+            'users', voceraUid),
+        { displayName: 'Vocera Comunal', role: 'vocera' }
+      );
+    });
+
+    const voceraContext = testEnv.authenticatedContext(voceraUid);
+    const db = voceraContext.firestore();
+    const targetDocRef = doc(db, 'Consejo-Comunal-La-Barranca',
+                              'data', 'users', targetUid);
+
+    // Una vocera no puede escribir en el documento de OTRO usuario
+    await assertFails(
+      setDoc(targetDocRef, {
+        displayName: 'Reemplazado',
+        role: 'desconocido'
+      })
+    );
+});
+\end{verbatim}
+\smallskip
+\textit{Este caso negativo complementa el happy-path de isManager(): confirma que un rol de gestor comunitario (vocera/vocero) no otorga escritura arbitraria fuera del documento propio del titular.}
 \end{tcolorbox}
 
 Tras incorporar esta verificación ejecutable y aplicar los parches correspondientes (commit \texttt{2b8678f}), el análisis STRIDE se consolidó en las siguientes mitigaciones, verificables línea por línea en el archivo \texttt{firestore.rules} (95 líneas) del repositorio:
@@ -2546,7 +2587,7 @@ Tailwind CSS: diseño responsivo sin CSS personalizado, adaptable a teléfonos y
 
 Estas no son elecciones técnicas triviales. Son expresiones de la fase Logic: cada decisión tiene una justificación que responde a las restricciones reales del contexto (conectividad intermitente, usuarios con baja alfabetización digital, presupuesto cero). La fase Logic de LOL exige que el desarrollador pueda articular por qué cada componente del sistema existe, no solo que funcione.
 
-El artefacto central de la fase Logic fue la definición del esquema de datos de Firestore y la especificación del sistema de roles. Este esquema —con su colección raíz \texttt{Consejo-Comunal-La-Barranca} y sus ocho subcolecciones funcionales— es el mapa que hace navegable el sistema antes de que exista una sola línea de código funcional. Cada colección refleja un módulo operativo del Consejo Comunal, derivado directamente del Documento de Transferencia de LAZY. En lugar de un diagrama de actores abstracto, Logic produjo una estructura de datos concreta y verificable en el repositorio.
+El artefacto central de la fase Logic fue la definición del esquema de datos de Firestore y la especificación del sistema de roles. Este esquema —con su colección raíz \texttt{Consejo-Comunal-La-Barranca} y sus siete subcolecciones funcionales— es el mapa que hace navegable el sistema antes de que exista una sola línea de código funcional. Cada colección refleja un módulo operativo del Consejo Comunal, derivado directamente del Documento de Transferencia de LAZY. En lugar de un diagrama de actores abstracto, Logic produjo una estructura de datos concreta y verificable en el repositorio.
 
 
 
@@ -2746,7 +2787,7 @@ Analyze (Analizar): Se desglosa el trabajo en micro-tareas aisladas del camino c
 
 Zoom (Enfocarse): Se define la tarea con un contrato de entrada y salida exacto. El colaborador sabe qué datos procesa su función y qué debe retornar, sin necesidad de comprender el resto del sistema.
 
-Yield (Ceder/Producir): El colaborador entrega su código mediante un Pull Request acotado ($\le 300$ líneas) dirigido a la rama de \texttt{staging}, respaldado por la plantilla de validación del repositorio. El pipeline de CI ejecuta el escaneo de secretos, linters y pruebas automáticas de cobertura. Si las verificaciones son exitosas, el código se integra; si fallan, la máquina rechaza la fusión y el colaborador debe corregir el fallo de forma autónoma, preservando el flujo y la energía del desarrollador principal.
+Yield (Ceder/Producir): El colaborador entrega su código mediante un Pull Request acotado ($\le 300$ líneas) dirigido a la rama de \texttt{staging}, respaldado por la plantilla de validación del repositorio. El diseño prevé que un pipeline de CI ejecute el escaneo de secretos, linters y pruebas automáticas de cobertura como gate de fusión; en su ausencia, el colaborador debe ejecutar localmente \texttt{npm test} y \texttt{npm run check:traceability} y adjuntar la traza al PR antes de solicitar revisión. Si el colaborador introduce un fallo, debe corregirlo de forma autónoma, preservando el flujo y la energía del desarrollador principal.
 
 \section{Fase 3: Gobierno Descentralizado (El Ecosistema Socio-Tecnológico)}
 
