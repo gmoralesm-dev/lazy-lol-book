@@ -2362,7 +2362,103 @@ E — Elevation of Privilege & Usuario intenta autoasignarse rol de lider\_de\_c
 \end{tabular}
 \end{table}
 
-Adicionalmente, el proyecto configura una suite de pruebas de interfaz mediante \texttt{@testing-library/react} (40 pruebas unitarias) combinada con la suite de seguridad de reglas en el emulador local. Esta suite doble cumple la función de Oversight continuo descrita en el Ciclo LOL: cada cambio en la interfaz o en las reglas de persistencia es verificado automáticamente antes de ser desplegado.
+Adicionalmente, el repositorio declara 43 pruebas (28 pruebas distribuidas en las 7 suites de interfaz mediante \texttt{@testing-library/react} y 15 pruebas unitarias en \texttt{validations.test.js}), con las 6 pruebas de seguridad de reglas en una suite separada sobre el emulador local. Esta suite combinada cumple la función de Oversight continuo descrita en el Ciclo LOL: cada cambio en la interfaz o en las reglas de persistencia es verificado automáticamente antes de ser desplegado.
+
+\subsubsection{Lección de Oversight: La Superficie de Ataque Pública}
+
+Durante el desarrollo apareció un vector de ataque que el análisis STRIDE inicial no había contemplado explícitamente: el canal de registro público de Firebase. La API key del proyecto es visible en el bundle de JavaScript desplegado ---por diseño en Firebase, pues es un identificador de proyecto, no un secreto---. Cualquier persona con esa clave podía llamar directamente al endpoint REST de Identity Toolkit y crear cuentas ilimitadas sin pasar por la interfaz de la aplicación:
+
+\begin{tcolorbox}[
+    colback=accent!5,
+    colframe=accent!40,
+    arc=5pt,
+    title=Vector de ataque real: registro anónimo masivo vía REST
+]
+\begin{verbatim}
+# Una sola petición HTTP crea una cuenta válida en el proyecto
+POST https://identitytoolkit.googleapis.com/v1/
+     accounts:signUp?key=API_KEY_PUBLICA
+
+{
+  "email": "spam.bot.1234@example.com",
+  "password": "password123",
+  "returnSecureToken": true
+}
+\end{verbatim}
+\smallskip
+\textit{La clave pública —visible en cualquier herramienta de inspección del navegador— era el único requisito para crear cuentas en segundos. Las reglas de Firestore impedían la escritura de datos sensibles, pero la colección \texttt{comunicados/\{id\}/comments} podía recibir comentarios de cualquier cuenta registrada, constituyendo un vector de spam operativo.}
+\end{tcolorbox}
+
+Esta situación ilustra una limitación del Oversight basado únicamente en reglas de base de datos: protege los \textit{datos} pero no reduce la \textit{superficie de autenticación}. Esta mitigación constituye un incremento en el costo de ataque o mitigación parcial: lo que la sonda demuestra es que los clientes que no envían cabecera \texttt{Referer} quedan bloqueados, si bien una petición manual con \verb|curl -H "Referer: https://<dominio>/"| puede sortearla al ser una cabecera fijada por el cliente. Lo que verdaderamente clausura la superficie es la implementación de App Check (reCAPTCHA Enterprise) sobre Identity Toolkit, o una Cloud Function bloqueadora (\texttt{beforeUserCreated}) que descarte la solicitud de registro. Con cualquiera de ambos controles en vigor, la sonda de verificación devuelve HTTP 403 con o sin la cabecera referer. El diseño contempla dos capas:
+
+\begin{itemize}
+  \item \textbf{Capa de autenticación:} mantener el proveedor de email/contraseña habilitado para permitir el acceso de administradores, situando la compuerta de control (\textit{gate}) en App Check o en una función bloqueadora (\texttt{beforeUserCreated}) que rechace registros no autorizados.
+  \item \textbf{Capa de infraestructura:} restringir la API key en Google Cloud Console para aceptar únicamente solicitudes con referrer HTTP válido del dominio del proyecto.
+\end{itemize}
+
+La validación del control se ilustra mediante la siguiente sonda de verificación ejecutada contra el endpoint de producción (listado referencial en este texto; no distribuido como script independiente en el repositorio / listing only, not shipped):
+
+\begin{tcolorbox}[
+    colback=primary!5,
+    colframe=primary!30,
+    arc=5pt,
+    title={Prueba ejecutable de superficie de autenticación (Node.js, listado referencial)}
+]
+\begin{verbatim}
+// Verificar que el registro externo sin referrer autorizado es bloqueado
+const https = require("https");
+const payload = JSON.stringify({
+  email: "verify.block." + Date.now() + "@example.com",
+  password: "password123",
+  returnSecureToken: true
+});
+
+const req = https.request(
+  "https://identitytoolkit.googleapis.com/v1/"
+  + "accounts:signUp?key=API_KEY_PUBLICA",
+  {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Content-Length": payload.length
+    }
+  },
+  (res) => {
+    let body = "";
+    res.on("data", chunk => body += chunk);
+    res.on("end", () => {
+      const { error } = JSON.parse(body);
+      // Salida capturada tras el fix (verbatim):
+      // HTTP 403 | API_KEY_HTTP_REFERRER_BLOCKED
+      // error.message: "Requests from referer <empty> are blocked."
+      console.log("HTTP", res.statusCode, "|",
+                  error?.details?.[0]?.reason ?? error?.message);
+    });
+  }
+);
+req.write(payload);
+req.end();
+\end{verbatim}
+\smallskip
+\begin{center}
+\small
+\begin{tabular}{ll}
+\toprule
+\textbf{Propiedad capturada} & \textbf{Salida real obtenida (verbatim)} \\
+\midrule
+Código de estado HTTP & \texttt{HTTP 403} \\
+Razón de bloqueo (\texttt{error.details[0].reason}) & \texttt{API\_KEY\_HTTP\_REFERRER\_BLOCKED} \\
+Mensaje de error (\texttt{error.message}) & \verb|"Requests from referer <empty> are blocked."| \\
+\bottomrule
+\end{tabular}
+\end{center}
+\smallskip
+\textit{El script se ejecuta desde una terminal sin referrer HTTP. La salida confirma que los clientes sin cabecera son rechazados por la restricción de infraestructura; el mensaje \texttt{error.message} especifica: \enquote{Requests from referer \textless empty\textgreater\ are blocked.}.}
+\end{tcolorbox}
+
+\begin{authorobservation}
+Este caso consolidó una lección práctica sobre Oversight en sistemas Firebase: las reglas de base de datos y las restricciones de autenticación operan en capas independientes. Un sistema puede tener reglas de Firestore perfectamente escritas y aun así exponer una superficie de ataque en la capa de autenticación. El Oversight efectivo exige razonar sobre \textit{cada} capa del stack ---autenticación, base de datos, infraestructura de red--- y verificar cada mitigación mediante pruebas ejecutables, no mediante suposiciones.
+\end{authorobservation}
 
 \subsection{Pilar L: Layering — Construcción por Capas}
 
